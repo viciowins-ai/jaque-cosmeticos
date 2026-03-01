@@ -1,32 +1,19 @@
 :root {
-  --primary: #526f5d;
-  /* Elegant sage green (Boticário style) */
-  --primary-dark: #374b3f;
-  --secondary: #dca396;
-  /* Soft coral/pink */
-  --accent: #d2a65a;
-  /* Gold */
-  --background: #fcfbf9;
+  --primary: #ffffff;
+  --secondary: #21284d;
+  /* Dark navy */
+  --accent: #ff8c42;
+  /* Optional highlight */
+  --background: #12182b;
+  /* Deep night sky */
   --surface: #ffffff;
-  --text-main: #2b2b2b;
-  --text-muted: #6e6e6e;
+  --text-main: #ffffff;
+  --text-muted: #aab2cc;
 
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
   --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #111412;
-    --surface: #191e1b;
-    --text-main: #f0f4f2;
-    --text-muted: #a4b0a8;
-    --primary: #6b8a77;
-  }
 }
 
 * {
@@ -43,6 +30,16 @@ body {
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   overflow-x: hidden;
+  /* Starry background effect */
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 90px 40px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 160px 120px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
 }
 
 a {

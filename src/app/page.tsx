@@ -1,23 +1,23 @@
 "use client";
 import styles from "./page.module.css";
-import { Search, ShoppingBag, User, Menu, ChevronRight, Heart, Star } from "lucide-react";
 import { motion } from "framer-motion";
 
-// Simulando a prateleira exata da Natura com um item do tipo "Hero" na ponta
 const shelfItems = [
-  { id: "hero", isHero: true, image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop", title: "Conheça as novidades" },
-  { id: 1, isHero: false, tag: "lançamento", name: "Kit Tododia Morango e Baunilha Dourada com Hidratante...", brand: "Tododia", rating: "5.0", oldPrice: "R$ 259,60", price: "R$ 181,00", discount: "30", image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400" },
-  { id: 2, isHero: false, tag: "lançamento", name: "Creme Desodorante Nutritivo para o Corpo Tododia...", brand: "Tododia", rating: "5.0", oldPrice: "R$ 78,90", price: "R$ 78,90", discount: "0", image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=400" },
-  { id: 3, isHero: false, tag: "lançamento", name: "Body Splash Tododia Morango e Baunilha Dourada 200 ml", brand: "Tododia", rating: "5.0", oldPrice: "R$ 93,90", price: "R$ 65,90", discount: "30", image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=400" }
+  { id: 1, name: "Sérum Revitalizante", price: "R$ 28,90", image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#fad3cd", height: 180 },
+  { id: 2, name: "Base Líquida Cokimiora", price: "R$ 12,90", image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#f5d3cf", height: 160 },
+  { id: 3, name: "Perfume Frma Plotloa", price: "R$ 28,90", image: "https://images.pexels.com/photos/2587373/pexels-photo-2587373.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#b3dfd1", height: 190 },
+  { id: 4, name: "Óleo Corporal Malal", price: "R$ 12,90", image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#f6e4cc", height: 150 },
+  { id: 5, name: "Tônico Caroac Vork", price: "R$ 18,90", image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#facdcd", height: 170 },
+  { id: 6, name: "Paleta Samo Neran", price: "R$ 18,90", image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#f2ece4", height: 140 },
 ];
 
-const categories = [
-  { title: "Kits Presente", image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=200&fit=crop" },
-  { title: "Perfumaria", image: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?q=80&w=200&fit=crop" }, /* Updated to a beautiful generic perfumery shot */
-  { title: "Corpo e Banho", image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=200&fit=crop" },
-  { title: "Maquiagem", image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=200&fit=crop" },
-  { title: "Cabelos", image: "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=200&fit=crop" },
-  { title: "Skincare", image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=200&fit=crop" },
+// URLs for floating background products (using transparent-looking or cutout styles from prior requests/Pexels)
+const floatingImages = [
+  { src: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=200&fit=crop", top: "10%", left: "5%", delay: 0 },
+  { src: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?q=80&w=200&fit=crop", top: "60%", left: "8%", delay: 1 },
+  { src: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=200&fit=crop", top: "15%", left: "85%", delay: 2 },
+  { src: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=200&fit=crop", top: "65%", left: "80%", delay: 1.5 },
+  { src: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=200&fit=crop", top: "5%", left: "45%", delay: 0.5 },
 ];
 
 export default function Home() {
@@ -25,98 +25,74 @@ export default function Home() {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15
-      }
+      transition: { staggerChildren: 0.1 }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 200, damping: 20 } }
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
   };
 
   return (
     <main className={styles.main}>
-      {/* Top Banner (Promo) */}
-      <div className={styles.promoBar}>
-        Ganhe frete grátis nas compras acima de R$ 149,00! 🚚
+
+      {/* Floating Background Products (Parallax Effect) */}
+      <div className={styles.floatingContainer}>
+        {floatingImages.map((img, idx) => (
+          <motion.img
+            key={idx}
+            src={img.src}
+            className={styles.floatingImg}
+            style={{ top: img.top, left: img.left }}
+            initial={{ y: 0, rotate: -5 }}
+            animate={{
+              y: [0, -20, 0],
+              rotate: [-5, 5, -5]
+            }}
+            transition={{
+              duration: 8 + (idx * 2),
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: img.delay
+            }}
+            alt="" aria-hidden="true"
+          />
+        ))}
       </div>
 
       {/* Header */}
       <header className={styles.header}>
-        <div className={styles.headerTop}>
-          <div className={styles.menuIcon}><Menu size={28} /></div>
-          <div className={styles.logo}>Jaque<span>Cosméticos</span></div>
-          <div className={styles.headerIcons}>
-            <button><User size={24} /></button>
-            <button className={styles.cartBtn}>
-              <ShoppingBag size={24} />
-              <span className={styles.cartBadge}>2</span>
-            </button>
-          </div>
+        <div className={styles.logoBlock}>
+          <h1 className={styles.logoMain}>JAQUE</h1>
+          <h2 className={styles.logoSub}>COSMÉTICOS</h2>
         </div>
-        <div className={styles.searchContainer}>
-          <div className={styles.searchInputWrapper}>
-            <Search size={20} className={styles.searchIcon} />
-            <input type="text" placeholder="O que você está procurando?" className={styles.searchInput} />
-          </div>
-        </div>
+        <nav className={styles.navMenu}>
+          <a href="#" className={styles.navLink}>MAQUIAGEM</a>
+          <a href="#" className={styles.navLink}>SKINCARE</a>
+          <a href="#" className={styles.navLink}>PERFUMÁRIA</a>
+          <button className={styles.promoBtn}>PROMOÇÕES</button>
+        </nav>
       </header>
 
-      {/* Hero Banner (Carousel Style) */}
+      {/* Center Banner */}
       <motion.section
-        className={styles.heroBanner}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        className={styles.heroSection}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
       >
-        <div className={styles.bannerSlide}>
-          <div className={styles.bannerContent}>
-            <h2>Festival da Beleza</h2>
-            <p>Até 40% OFF em Perfumaria e Maquiagem</p>
-            <button className={styles.bannerBtn}>Aproveitar <ChevronRight size={18} /></button>
+        <div className={styles.heroGlowBanner}>
+          <div className={styles.novidadesBadge}>NOVIDADES</div>
+          <div className={styles.heroText}>
+            <span className={styles.heroPrice}>Até 50%</span>
+            <span className={styles.heroSubText}>DE DESCONTO</span>
           </div>
         </div>
       </motion.section>
 
-      {/* Circle Categories */}
-      <section className={styles.categoriesSection}>
-        <motion.div
-          className={styles.categoriesScroll}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          {categories.map((cat, i) => (
-            <motion.div key={i} className={styles.categoryItem} variants={itemVariants}>
-              <div className={styles.categoryCircle}>
-                <img src={cat.image} alt={cat.title} />
-              </div>
-              <span className={styles.categoryTitle}>{cat.title}</span>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* Quick Brands Links */}
-      <section className={styles.brandsSection}>
-        <div className={styles.brandCard}>O Boticário</div>
-        <div className={styles.brandCard}>Natura</div>
-        <div className={styles.brandCard}>Avon</div>
-      </section>
-
-      {/* Product Shelf (Horizontal Scroll) */}
+      {/* Product Shelf */}
       <section className={styles.shelfSection}>
-        <div className={styles.shelfCenterHeader}>
-          <h2>conheça as novidades de Tododia</h2>
-          <div className={styles.pillToggles}>
-            <button className={`${styles.pillBtn} ${styles.pillActive}`}>Tododia Morango</button>
-            <button className={styles.pillBtn}>Tododia Antioleosidade</button>
-          </div>
-        </div>
-
         <motion.div
           className={styles.shelfScroll}
           variants={containerVariants}
@@ -124,64 +100,43 @@ export default function Home() {
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {shelfItems.map((item) => {
-            if (item.isHero) {
-              return (
-                <motion.div key={item.id} className={styles.heroCard} variants={itemVariants}>
-                  <img src={item.image} alt={item.title} />
-                </motion.div>
-              );
-            }
-
-            return (
-              <motion.div key={item.id} className={styles.productCard} variants={itemVariants} whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.08)", transition: { duration: 0.2 } }}>
-                <button className={styles.favoriteBtn}>
-                  <Heart size={20} strokeWidth={1.5} />
-                </button>
-
-                {item.tag && <div className={styles.tagBadge}>{item.tag}</div>}
-
-                <div className={styles.productImage}>
-                  <img src={item.image} alt={item.name} />
+          {shelfItems.map((item) => (
+            <motion.div key={item.id} className={styles.card} variants={itemVariants} whileHover={{ y: -8, transition: { duration: 0.2 } }}>
+              <div className={styles.cardPastelBg} style={{ backgroundColor: item.bgColor }}>
+                <img src={item.image} alt={item.name} className={styles.cardImg} style={{ height: item.height }} />
+              </div>
+              <div className={styles.cardInfo}>
+                <div className={styles.cardInfoLeft}>
+                  <h3 className={styles.cardTitle}>{item.name}</h3>
+                  <div className={styles.cardPrice}>{item.price}</div>
                 </div>
-
-                <div className={styles.productInfo}>
-                  <div className={styles.brandRow}>
-                    <span className={styles.productBrand}>{item.brand}</span>
-                    <span className={styles.rating}><Star fill="#f5a623" stroke="none" size={14} /> {item.rating}</span>
-                  </div>
-                  <h4 className={styles.productName}>{item.name}</h4>
-
-                  <div className={styles.pricing}>
-                    {item.discount !== "0" && (
-                      <div className={styles.priceRow}>
-                        <span className={styles.oldPrice}>{item.oldPrice}</span>
-                        <span className={styles.redDiscountBadge}>-{item.discount}%</span>
-                      </div>
-                    )}
-                    <span className={styles.price}>{item.price}</span>
-                    <span className={styles.installments}>ou 3x de R$ {(parseFloat((item.price || "0").replace('R$ ', '').replace(',', '.')) / 3).toFixed(2).replace('.', ',')} sem juros</span>
-                  </div>
-
-                  <button className={styles.buyBtn}>adicionar à sacola</button>
-                </div>
-              </motion.div>
-            );
-          })}
+                <button className={styles.comprarBtn}>Comprar</button>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </section>
 
-      {/* Promotional Banners Mix */}
-      <section className={styles.promoGrid}>
-        <div className={styles.promoBox}>
-          <h3>Presentes Natura</h3>
-          <p>Kits exclusivos para você</p>
+      {/* Sticky Bottom Footer */}
+      <motion.footer
+        className={styles.bottomFooter}
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.5 }}
+      >
+        <div className={styles.footerLeft}>
+          <span className={styles.pixTag}>Pix</span>
+          <span className={styles.cardTag}>Cartão</span>
         </div>
-        <div className={styles.promoBox}>
-          <h3>Nova Linha Avon</h3>
-          <p>Cores intensas</p>
+
+        <div className={styles.footerCenter}>
+          <p>Entrega para todo o Brasil via Correios ou<br /><span className={styles.muteText}>transportadora privadas</span></p>
         </div>
-      </section>
+
+        <button className={styles.footerBuyBtn}>
+          Comprar &rarr;
+        </button>
+      </motion.footer>
 
     </main>
   );
