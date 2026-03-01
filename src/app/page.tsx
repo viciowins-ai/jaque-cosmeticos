@@ -31,34 +31,24 @@ export default function Home() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 300, damping: 24 } }
   };
 
   return (
     <main className={styles.main}>
 
-      {/* Floating Background Products (Parallax Effect) */}
+      {/* Background Video Component */}
       <div className={styles.floatingContainer}>
-        {floatingImages.map((img, idx) => (
-          <motion.img
-            key={idx}
-            src={img.src}
-            className={styles.floatingImg}
-            style={{ top: img.top, left: img.left }}
-            initial={{ y: 0, rotate: -5 }}
-            animate={{
-              y: [0, -20, 0],
-              rotate: [-5, 5, -5]
-            }}
-            transition={{
-              duration: 8 + (idx * 2),
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: img.delay
-            }}
-            alt="" aria-hidden="true"
-          />
-        ))}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className={styles.bgVideo}
+        >
+          <source src="/bg-video.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.bgVideoOverlay}></div>
       </div>
 
       {/* Header */}
