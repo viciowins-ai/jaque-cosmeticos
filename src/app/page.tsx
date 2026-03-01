@@ -1,5 +1,7 @@
+"use client";
 import styles from "./page.module.css";
 import { Search, ShoppingBag, User, Menu, ChevronRight, Heart, Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Simulando a prateleira exata da Natura com um item do tipo "Hero" na ponta
 const shelfItems = [
@@ -19,6 +21,21 @@ const categories = [
 ];
 
 export default function Home() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 200, damping: 20 } }
+  };
+
   return (
     <main className={styles.main}>
       {/* Top Banner (Promo) */}
@@ -48,7 +65,12 @@ export default function Home() {
       </header>
 
       {/* Hero Banner (Carousel Style) */}
-      <section className={styles.heroBanner}>
+      <motion.section
+        className={styles.heroBanner}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         <div className={styles.bannerSlide}>
           <div className={styles.bannerContent}>
             <h2>Festival da Beleza</h2>
@@ -56,20 +78,26 @@ export default function Home() {
             <button className={styles.bannerBtn}>Aproveitar <ChevronRight size={18} /></button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Circle Categories */}
       <section className={styles.categoriesSection}>
-        <div className={styles.categoriesScroll}>
+        <motion.div
+          className={styles.categoriesScroll}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {categories.map((cat, i) => (
-            <div key={i} className={styles.categoryItem}>
+            <motion.div key={i} className={styles.categoryItem} variants={itemVariants}>
               <div className={styles.categoryCircle}>
                 <img src={cat.image} alt={cat.title} />
               </div>
               <span className={styles.categoryTitle}>{cat.title}</span>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Quick Brands Links */}
@@ -89,18 +117,24 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.shelfScroll}>
+        <motion.div
+          className={styles.shelfScroll}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {shelfItems.map((item) => {
             if (item.isHero) {
               return (
-                <div key={item.id} className={styles.heroCard}>
+                <motion.div key={item.id} className={styles.heroCard} variants={itemVariants}>
                   <img src={item.image} alt={item.title} />
-                </div>
+                </motion.div>
               );
             }
 
             return (
-              <div key={item.id} className={styles.productCard}>
+              <motion.div key={item.id} className={styles.productCard} variants={itemVariants} whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.08)", transition: { duration: 0.2 } }}>
                 <button className={styles.favoriteBtn}>
                   <Heart size={20} strokeWidth={1.5} />
                 </button>
@@ -131,10 +165,10 @@ export default function Home() {
 
                   <button className={styles.buyBtn}>adicionar à sacola</button>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </section>
 
       {/* Promotional Banners Mix */}
