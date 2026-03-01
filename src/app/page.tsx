@@ -3,10 +3,10 @@ import { Search, ShoppingBag, User, Menu, ChevronRight, Heart, Star } from "luci
 
 // Simulando a prateleira exata da Natura com um item do tipo "Hero" na ponta
 const shelfItems = [
-  { id: "hero", isHero: true, image: "https://placehold.co/600x800/ffebdb/ff7b47?text=Foto+Campanha", title: "Conheça as novidades" },
-  { id: 1, isHero: false, tag: "lançamento", name: "Kit Tododia Morango e Baunilha Dourada com Hidratante...", brand: "Tododia", rating: "5.0", oldPrice: "R$ 259,60", price: "R$ 181,00", discount: "30", image: "https://placehold.co/400x400/fdfbfb/ff7b47?text=Foto+do+Kit" },
-  { id: 2, isHero: false, tag: "lançamento", name: "Creme Desodorante Nutritivo para o Corpo Tododia...", brand: "Tododia", rating: "5.0", oldPrice: "R$ 78,90", price: "R$ 78,90", discount: "0", image: "https://placehold.co/400x400/fdfbfb/ff7b47?text=Foto+do+Creme" },
-  { id: 3, isHero: false, tag: "lançamento", name: "Body Splash Tododia Morango e Baunilha Dourada 200 ml", brand: "Tododia", rating: "5.0", oldPrice: "R$ 93,90", price: "R$ 65,90", discount: "30", image: "https://placehold.co/400x400/fdfbfb/ff7b47?text=Foto+Body+Splash" }
+  { id: "hero", isHero: true, image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop", title: "Conheça as novidades" },
+  { id: 1, isHero: false, tag: "lançamento", name: "Kit Tododia Morango e Baunilha Dourada com Hidratante...", brand: "Tododia", rating: "5.0", oldPrice: "R$ 259,60", price: "R$ 181,00", discount: "30", image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400" },
+  { id: 2, isHero: false, tag: "lançamento", name: "Creme Desodorante Nutritivo para o Corpo Tododia...", brand: "Tododia", rating: "5.0", oldPrice: "R$ 78,90", price: "R$ 78,90", discount: "0", image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=400" },
+  { id: 3, isHero: false, tag: "lançamento", name: "Body Splash Tododia Morango e Baunilha Dourada 200 ml", brand: "Tododia", rating: "5.0", oldPrice: "R$ 93,90", price: "R$ 65,90", discount: "30", image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=400" }
 ];
 
 const categories = [
