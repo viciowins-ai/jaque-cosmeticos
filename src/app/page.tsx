@@ -3,10 +3,10 @@ import { Search, ShoppingBag, User, Menu, ChevronRight, Heart, Star } from "luci
 
 // Simulando a prateleira exata da Natura com um item do tipo "Hero" na ponta
 const shelfItems = [
-  { id: "hero", isHero: true, image: "https://images.unsplash.com/photo-1591871987518-809ba8736f88?q=80&w=600&fit=crop", title: "Conheça as novidades" },
-  { id: 1, isHero: false, tag: "lançamento", name: "Kit Tododia Morango e Baunilha Dourada com Hidratante...", brand: "Tododia", rating: "5.0", oldPrice: "R$ 259,60", price: "R$ 181,00", discount: "30", image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=400&fit=crop" },
-  { id: 2, isHero: false, tag: "lançamento", name: "Creme Desodorante Nutritivo para o Corpo Tododia...", brand: "Tododia", rating: "5.0", oldPrice: "R$ 78,90", price: "R$ 78,90", discount: "0", image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=400&fit=crop" },
-  { id: 3, isHero: false, tag: "lançamento", name: "Body Splash Tododia Morango e Baunilha Dourada 200 ml", brand: "Tododia", rating: "5.0", oldPrice: "R$ 93,90", price: "R$ 65,90", discount: "30", image: "https://images.unsplash.com/photo-1594034183956-78229b35e27a?q=80&w=400&fit=crop" }
+  { id: "hero", isHero: true, image: "https://placehold.co/600x800/ffebdb/ff7b47?text=Foto+Campanha", title: "Conheça as novidades" },
+  { id: 1, isHero: false, tag: "lançamento", name: "Kit Tododia Morango e Baunilha Dourada com Hidratante...", brand: "Tododia", rating: "5.0", oldPrice: "R$ 259,60", price: "R$ 181,00", discount: "30", image: "https://placehold.co/400x400/fdfbfb/ff7b47?text=Foto+do+Kit" },
+  { id: 2, isHero: false, tag: "lançamento", name: "Creme Desodorante Nutritivo para o Corpo Tododia...", brand: "Tododia", rating: "5.0", oldPrice: "R$ 78,90", price: "R$ 78,90", discount: "0", image: "https://placehold.co/400x400/fdfbfb/ff7b47?text=Foto+do+Creme" },
+  { id: 3, isHero: false, tag: "lançamento", name: "Body Splash Tododia Morango e Baunilha Dourada 200 ml", brand: "Tododia", rating: "5.0", oldPrice: "R$ 93,90", price: "R$ 65,90", discount: "30", image: "https://placehold.co/400x400/fdfbfb/ff7b47?text=Foto+Body+Splash" }
 ];
 
 const categories = [
