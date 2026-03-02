@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: 'Jaque Cosméticos',
-        short_name: 'Jaque',
+        name: 'Jack Cosméticos',
+        short_name: 'Jack',
         description: 'Compre produtos O Boticário online com facilidade',
         start_url: '/',
         display: 'standalone',

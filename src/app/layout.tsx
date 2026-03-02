@@ -9,8 +9,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Jaque Cosméticos | Multimarcas de Beleza",
-  description: "Descubra a sua beleza com os melhores produtos O Boticário, Natura e Avon. Envio para todo o Brasil e pagamento instantâneo via Pix.",
+  title: "Jack Cosméticos | Multimarcas de Beleza",
+  description: "Descubra a sua beleza com os melhores produtos O Boticário, Natura e Avon com a Consultora Jack! Envio rápído e pagamento via Pix.",
   manifest: "/manifest.json",
   icons: {
     icon: "/favicon.ico",

@@ -56,7 +56,7 @@ export default function ProdutoPage() {
                 <div className={styles.headerNavTop}>
                     <div className={styles.headerNavLeft}>
                         <span>natura ⏷</span>
-                        <span>consultora ⏷</span>
+                        <span>consultora jack ⏷</span>
                         <span>perfis ⏷</span>
                         <span>atendimento ⏷</span>
                         <span>baixe o app</span>
@@ -68,11 +68,12 @@ export default function ProdutoPage() {
                     </div>
                 </div>
                 <div className={styles.headerMain}>
-                    <div className={styles.logoBlock}>
-                        <svg width="100" height="30" viewBox="0 0 100 30" fill="white">
-                            <path d="M12.9 14.1c-1.8 0-3.3-1.5-3.3-3.3 0-1.8 1.5-3.3 3.3-3.3 1.8 0 3.3 1.5 3.3 3.3 0 1.8-1.5 3.3-3.3 3.3zm0-7.8c-2.4 0-4.4 2-4.4 4.4 0 2.4 2 4.4 4.4 4.4 2.4 0 4.4-2 4.4-4.4 0-2.4-2-4.4-4.4-4.4z" />
-                            <text x="25" y="20" fontFamily="sans-serif" fontSize="20" fontWeight="bold">natura</text>
-                        </svg>
+                    <div className={styles.aquiTemLogoWrapper}>
+                        <img
+                            src="/aqui-tem-logo.png"
+                            alt="Aqui Tem Natura Logo"
+                            className={styles.aquiTemImage}
+                        />
                     </div>
                     <div className={styles.searchBar}>
                         <input type="text" placeholder="o que está buscando hoje?" />
@@ -189,10 +190,18 @@ export default function ProdutoPage() {
                             <a href="#" className={styles.continueShopping}>continuar comprando &rarr;</a>
                         </div>
 
-                        <button className={styles.addToCartBtn}>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                            adicionar à sacola
-                        </button>
+                        <a
+                            href={`https://wa.me/5541997298384?text=Olá%20Consultora%20Jack!%20Gostaria%20de%20comprar%20o%20produto%20${product.name}%20(${product.code})%20pagando%20no%20PIX!`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.addToCartBtn}
+                            style={{ textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '8px' }}>
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.662-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c0-5.445 4.439-9.884 9.888-9.884 2.64 0 5.122 1.029 6.988 2.895a9.82 9.82 0 012.893 6.994c-.002 5.445-4.441 9.888-9.885 9.888m8.413-18.297A11.815 11.815 0 0012.052 0C5.495 0 .16 5.333.158 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.332 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                            Comprar no Zap com PIX
+                        </a>
                     </div>
                 </motion.div>
             </div>
