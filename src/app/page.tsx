@@ -8,7 +8,7 @@ const shelfItems = [
   { id: 3, name: "Perfume Frma Plotloa", price: "R$ 28,90", image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400", bgColor: "#b3dfd1", height: 190 },
   { id: 4, name: "Óleo Corporal Malal", price: "R$ 12,90", image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", bgColor: "#f6e4cc", height: 150 },
   { id: 5, name: "Tônico Caroac Vork", price: "R$ 18,90", image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400", bgColor: "#facdcd", height: 170 },
-  { id: 6, name: "Paleta Samo Neran", price: "R$ 18,90", image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1512496115851-a408e8b50e38?auto=format&fit=crop&q=80&w=400", bgColor: "#f2ece4", height: 140 },
+  { id: 6, name: "Paleta Samo Neran", price: "R$ 18,90", image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=400", bgColor: "#f2ece4", height: 140 },
 ];
 
 // URLs for floating background products (using transparent-looking or cutout styles from prior requests/Pexels)
@@ -123,7 +123,7 @@ export default function Home() {
           {shelfItems.map((item) => (
             <motion.div key={item.id} className={styles.card} variants={itemVariants} whileHover={{ y: -8, transition: { duration: 0.2 } }}>
               <div className={styles.cardPastelBg} style={{ backgroundColor: item.bgColor }}>
-                <img src={item.image} alt={item.name} className={styles.cardImg} style={{ height: item.height }} />
+                <img src={item.image} alt={item.name} className={styles.cardImg} />
                 <img src={item.hoverImage} alt={`${item.name} em uso`} className={styles.cardHoverImg} />
               </div>
               <div className={styles.cardInfo}>
@@ -146,7 +146,7 @@ export default function Home() {
         transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.5 }}
       >
         <div className={styles.footerLeft}>
-          <span className={styles.pixTag}>Pix</span>
+          <img src="/pix-logo.svg" alt="Pix Powered by Banco Central" className={styles.pixOfficialLogo} />
         </div>
 
         <div className={styles.footerCenter}>
