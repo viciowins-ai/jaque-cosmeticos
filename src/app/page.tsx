@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const shelfItems = [
   { id: 1, name: "Sérum Revitalizante", price: "R$ 28,90", image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#fad3cd", height: 180 },
   { id: 2, name: "Base Líquida Cokimiora", price: "R$ 12,90", image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#f5d3cf", height: 160 },
-  { id: 3, name: "Perfume Frma Plotloa", price: "R$ 28,90", image: "https://images.pexels.com/photos/2587373/pexels-photo-2587373.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#b3dfd1", height: 190 },
+  { id: 3, name: "Perfume Frma Plotloa", price: "R$ 28,90", image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=300", bgColor: "#b3dfd1", height: 190 },
   { id: 4, name: "Óleo Corporal Malal", price: "R$ 12,90", image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#f6e4cc", height: 150 },
   { id: 5, name: "Tônico Caroac Vork", price: "R$ 18,90", image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#facdcd", height: 170 },
   { id: 6, name: "Paleta Samo Neran", price: "R$ 18,90", image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", bgColor: "#f2ece4", height: 140 },
