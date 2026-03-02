@@ -58,9 +58,9 @@ export default function Home() {
           <h2 className={styles.logoSub}>COSMÉTICOS</h2>
         </div>
         <nav className={styles.navMenu}>
-          <a href="#" className={styles.navLink}>MAQUIAGEM</a>
-          <a href="#" className={styles.navLink}>SKINCARE</a>
-          <a href="#" className={styles.navLink}>PERFUMÁRIA</a>
+          <a href="#" className={styles.navLink}>NATURA</a>
+          <a href="#" className={styles.navLink}>AVON</a>
+          <a href="#" className={styles.navLink}>O BOTICÁRIO</a>
           <button className={styles.promoBtn}>PROMOÇÕES</button>
         </nav>
       </header>
@@ -77,6 +77,36 @@ export default function Home() {
           <div className={styles.heroText}>
             <span className={styles.heroPrice}>Até 50%</span>
             <span className={styles.heroSubText}>DE DESCONTO</span>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Features Section */}
+      <motion.section
+        className={styles.featuresSection}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <div className={styles.featureItem}>
+          <div className={styles.featureIcon}>🛍️</div>
+          <div>
+            <h4>Multimarcas</h4>
+            <p><strong>Natura</strong>, <strong>Avon</strong> e <strong>O Boticário</strong> a pronta-entrega.</p>
+          </div>
+        </div>
+        <div className={styles.featureItem}>
+          <div className={styles.featureIcon}>🔒</div>
+          <div>
+            <h4>Pagamento Seguro</h4>
+            <p>Aceitamos <strong>PIX</strong> para maior segurança na sua transação.</p>
+          </div>
+        </div>
+        <div className={styles.featureItem}>
+          <div className={styles.featureIcon}>📦</div>
+          <div>
+            <h4>Entrega Rápida</h4>
+            <p>Envios para todo o Brasil via <strong>Correios</strong> ou Transportadoras.</p>
           </div>
         </div>
       </motion.section>
@@ -116,7 +146,6 @@ export default function Home() {
       >
         <div className={styles.footerLeft}>
           <span className={styles.pixTag}>Pix</span>
-          <span className={styles.cardTag}>Cartão</span>
         </div>
 
         <div className={styles.footerCenter}>

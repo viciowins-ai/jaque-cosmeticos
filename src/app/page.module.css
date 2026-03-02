@@ -159,6 +159,66 @@
   letter-spacing: 2px;
 }
 
+/* Features */
+.featuresSection {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 0 60px;
+  margin-bottom: 60px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  transition: transform 0.3s;
+}
+
+.featureItem:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.featureIcon {
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.featureItem h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: white;
+  margin-top: 0;
+}
+
+.featureItem p {
+  font-size: 0.85rem;
+  color: #c2c9d6;
+  line-height: 1.4;
+  margin: 0;
+}
+
 /* Shelf */
 .shelfSection {
   position: relative;
