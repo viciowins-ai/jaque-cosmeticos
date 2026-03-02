@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import { motion } from "framer-motion";
 
@@ -29,6 +30,7 @@ const floatingImages = [
 
 export default function Home() {
   const shelfRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const scrollShelf = (direction: 'left' | 'right') => {
     if (shelfRef.current) {
@@ -141,7 +143,14 @@ export default function Home() {
           viewport={{ once: true, margin: "-100px" }}
         >
           {shelfItems.map((item) => (
-            <motion.div key={item.id} className={styles.card} variants={itemVariants} whileHover={{ y: -8, transition: { duration: 0.2 } }}>
+            <motion.div
+              key={item.id}
+              className={styles.card}
+              variants={itemVariants}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              onClick={() => router.push(`/produto/${item.id}`)}
+              style={{ cursor: 'pointer' }}
+            >
               <div className={styles.cardPastelBg} style={{ backgroundColor: item.bgColor }}>
                 <button className={styles.heartBtn}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>

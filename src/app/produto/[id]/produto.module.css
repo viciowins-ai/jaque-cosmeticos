@@ -1,0 +1,504 @@
+.main {
+    font-family: 'Outfit', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 60px;
+}
+
+/* Background Video */
+.floatingContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bgVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.bgVideoOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 14, 25, 0.4);
+    z-index: 1;
+}
+
+.topPromoBanner {
+    background: white;
+    color: #333;
+    text-align: center;
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.topPromoBanner a {
+    color: #4A90E2;
+    text-decoration: underline;
+    margin-left: 4px;
+}
+
+.closePromo {
+    position: absolute;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.headerNavTop {
+    background: #333;
+    /* Darker bar */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 40px;
+    font-size: 0.8rem;
+}
+
+.headerNavLeft {
+    display: flex;
+    gap: 20px;
+}
+
+.headerNavRight {
+    display: flex;
+    gap: 20px;
+}
+
+.headerNavRight span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.headerMain {
+    background: #463b5e;
+    /* Natura purple/grey */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchBar {
+    flex: 1;
+    max-width: 600px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    margin: 0 40px;
+}
+
+.searchBar input {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.searchBar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.searchIcon {
+    position: absolute;
+    right: 45px;
+    cursor: pointer;
+}
+
+.searchMic {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.headerIcons {
+    display: flex;
+    gap: 24px;
+    color: white;
+    align-items: center;
+}
+
+.iconItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7rem;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.iconItemCart {
+    position: relative;
+    cursor: pointer;
+    background: transparent;
+    padding: 8px;
+}
+
+.cartBadge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #F48120;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.mainNav {
+    background: rgba(70, 59, 94, 0.8);
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 12px 20px;
+    backdrop-filter: blur(5px);
+}
+
+.mainNav a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.mainNav a:hover {
+    text-decoration: underline;
+}
+
+.contentWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.leftColumn {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.thumbImg,
+.thumbActive {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 16px 4px 16px 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.thumbActive {
+    border-color: #F48120;
+}
+
+.mainImageWrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainProductImg {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: 80px 16px 80px 16px;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.productCard {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    color: #333;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cardTopRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.ratingBox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ratingScore {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.stars {
+    color: #F5C518;
+    font-size: 0.8rem;
+}
+
+.reviewsCount {
+    color: #4A90E2;
+    font-size: 0.8rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.actionsBox {
+    display: flex;
+    gap: 8px;
+}
+
+.iconBtn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #666;
+    cursor: pointer;
+}
+
+.recommendBox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+.greenBadge {
+    background: #3eb574;
+    color: white;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.recommendText {
+    color: #777;
+    font-size: 0.8rem;
+}
+
+.productName {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.productSubtitle {
+    color: #999;
+    font-size: 0.85rem;
+    margin: 0 0 4px 0;
+}
+
+.productCode {
+    color: #aaa;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tagBadge {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    color: #555;
+    background: white;
+}
+
+.pricingSection {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 16px 0;
+    margin-bottom: 24px;
+}
+
+.priceRow {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.oldPrice {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 0.9rem;
+}
+
+.currentPrice {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.savingsBadge {
+    background: #F48120;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+.installments {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.shippingBox {
+    margin-bottom: 20px;
+    background: #f8f8f8;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.shippingBox h4 {
+    margin: 0 0 12px 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.freteBtn {
+    background: transparent;
+    border: none;
+    color: #4A90E2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+.freeShippingBox {
+    margin-bottom: 24px;
+}
+
+.freeShippingBox p {
+    font-size: 0.85rem;
+    margin: 0 0 8px 0;
+    color: #444;
+}
+
+.progressBar {
+    width: 100%;
+    height: 6px;
+    background: #eee;
+    border-radius: 3px;
+    margin-bottom: 8px;
+}
+
+.progressFill {
+    width: 100%;
+    height: 100%;
+    background: #3eb574;
+    border-radius: 3px;
+}
+
+.continueShopping {
+    font-size: 0.8rem;
+    color: #4A90E2;
+    text-decoration: none;
+}
+
+.addToCartBtn {
+    width: 100%;
+    background: #F48120;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.addToCartBtn:hover {
+    background: #c32d18;
+}
+
+@media (max-width: 900px) {
+    .contentWrapper {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
