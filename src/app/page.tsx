@@ -1,4 +1,5 @@
 "use client";
+import { useRef } from "react";
 import styles from "./page.module.css";
 import { motion } from "framer-motion";
 
@@ -9,6 +10,12 @@ const shelfItems = [
   { id: 4, name: "Óleo Corporal Malal", price: "R$ 12,90", image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", bgColor: "#f6e4cc", height: 150 },
   { id: 5, name: "Tônico Caroac Vork", price: "R$ 18,90", image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400", bgColor: "#facdcd", height: 170 },
   { id: 6, name: "Paleta Samo Neran", price: "R$ 18,90", image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=400", bgColor: "#f2ece4", height: 140 },
+  { id: 7, name: "Creme Hidratante Dia", price: "R$ 34,90", image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400", bgColor: "#fad3cd", height: 180 },
+  { id: 8, name: "Gloss Labial Brilho", price: "R$ 15,90", image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=400", bgColor: "#f5d3cf", height: 160 },
+  { id: 9, name: "Perfume Intenso Noite", price: "R$ 45,90", image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400", bgColor: "#b3dfd1", height: 190 },
+  { id: 10, name: "Loção Corporal Suave", price: "R$ 22,90", image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", bgColor: "#f6e4cc", height: 150 },
+  { id: 11, name: "Água Micelar Limpeza", price: "R$ 19,90", image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400", bgColor: "#facdcd", height: 170 },
+  { id: 12, name: "Sombra Duo Cores", price: "R$ 24,90", image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=400", bgColor: "#f2ece4", height: 140 },
 ];
 
 // URLs for floating background products (using transparent-looking or cutout styles from prior requests/Pexels)
@@ -21,6 +28,14 @@ const floatingImages = [
 ];
 
 export default function Home() {
+  const shelfRef = useRef<HTMLDivElement>(null);
+
+  const scrollShelf = (direction: 'left' | 'right') => {
+    if (shelfRef.current) {
+      const scrollAmount = direction === 'left' ? -320 : 320;
+      shelfRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -113,7 +128,12 @@ export default function Home() {
 
       {/* Product Shelf */}
       <section className={styles.shelfSection}>
+        <button className={`${styles.navArrow} ${styles.navLeft}`} onClick={() => scrollShelf('left')}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+        </button>
+
         <motion.div
+          ref={shelfRef}
           className={styles.shelfScroll}
           variants={containerVariants}
           initial="hidden"
@@ -123,19 +143,42 @@ export default function Home() {
           {shelfItems.map((item) => (
             <motion.div key={item.id} className={styles.card} variants={itemVariants} whileHover={{ y: -8, transition: { duration: 0.2 } }}>
               <div className={styles.cardPastelBg} style={{ backgroundColor: item.bgColor }}>
+                <button className={styles.heartBtn}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
                 <img src={item.image} alt={item.name} className={styles.cardImg} />
                 <img src={item.hoverImage} alt={`${item.name} em uso`} className={styles.cardHoverImg} />
               </div>
               <div className={styles.cardInfo}>
-                <div className={styles.cardInfoLeft}>
-                  <h3 className={styles.cardTitle}>{item.name}</h3>
-                  <div className={styles.cardPrice}>{item.price}</div>
+                <div className={styles.cardHeaderRow}>
+                  <span className={styles.cardBrand}>Natura</span>
+                  <div className={styles.cardRating}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <span>4.9</span>
+                  </div>
                 </div>
-                <button className={styles.comprarBtn}>Comprar</button>
+                <h3 className={styles.cardTitle}>{item.name}</h3>
+
+                <div className={styles.pricingBlock}>
+                  <div className={styles.oldPriceRow}>
+                    <span className={styles.oldPrice}>R$ 50,00</span>
+                  </div>
+                  <div className={styles.currentPriceRow}>
+                    <span className={styles.cardPrice}>{item.price}</span>
+                    <span className={styles.discountBadge}>-33%</span>
+                  </div>
+                  <span className={styles.installmentText}>ou 4x de R$ 7,22 sem juros</span>
+                </div>
+
+                <button className={styles.comprarBtn}>adicionar à sacola</button>
               </div>
             </motion.div>
           ))}
         </motion.div>
+
+        <button className={`${styles.navArrow} ${styles.navRight}`} onClick={() => scrollShelf('right')}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+        </button>
       </section>
 
       {/* Sticky Bottom Footer */}
@@ -168,6 +211,6 @@ export default function Home() {
         </svg>
       </a>
 
-    </main>
+    </main >
   );
 }
