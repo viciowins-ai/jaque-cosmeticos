@@ -505,8 +505,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background: transparent;
-  border: 1px solid white;
+  background: #25D366;
+  border: 1px solid #25D366;
   color: white;
   padding: 12px 32px;
   border-radius: 30px;
@@ -517,29 +517,6 @@
 }
 
 .footerBuyBtn:hover {
-  background: #25D366;
-  border-color: #25D366;
-  color: white;
+  filter: brightness(0.9);
   transform: translateY(-2px);
-}
-
-.floatingWhatsappBtn {
-  position: fixed;
-  bottom: 120px;
-  /* Above the sticky footer */
-  right: 40px;
-  width: 60px;
-  height: 60px;
-  background-color: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-  z-index: 100;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.floatingWhatsappBtn:hover {
-  transform: scale(1.15);
 }
