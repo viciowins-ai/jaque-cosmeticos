@@ -93,10 +93,33 @@ export default function Home() {
           <h2 className={styles.logoSub}>COSMÉTICOS</h2>
         </div>
         <nav className={styles.navMenu}>
-          <button onMouseEnter={() => setActiveFilter('Natura')} className={`${styles.navLink} ${activeFilter === 'Natura' ? styles.navLinkActive : ''}`}>NATURA</button>
-          <button onMouseEnter={() => setActiveFilter('Avon')} className={`${styles.navLink} ${activeFilter === 'Avon' ? styles.navLinkActive : ''}`}>AVON</button>
-          <button onMouseEnter={() => setActiveFilter('Boticário')} className={`${styles.navLink} ${activeFilter === 'Boticário' ? styles.navLinkActive : ''}`}>O BOTICÁRIO</button>
-          <button onMouseEnter={() => setActiveFilter('promo')} className={`${styles.promoBtn} ${activeFilter === 'promo' ? styles.promoBtnActive : ''}`}>PROMOÇÕES</button>
+          <button
+            onMouseEnter={() => setActiveFilter('Natura')}
+            onClick={() => window.open('https://www.natura.com.br/consultoria/sua_pagina_natura_aqui', '_blank')}
+            className={`${styles.navLink} ${activeFilter === 'Natura' ? styles.navLinkActive : ''}`}
+          >
+            NATURA
+          </button>
+          <button
+            onMouseEnter={() => setActiveFilter('Avon')}
+            onClick={() => window.open('https://www.avon.com.br/sua_pagina_avon_aqui', '_blank')}
+            className={`${styles.navLink} ${activeFilter === 'Avon' ? styles.navLinkActive : ''}`}
+          >
+            AVON
+          </button>
+          <button
+            onMouseEnter={() => setActiveFilter('Boticário')}
+            onClick={() => window.open('https://www.boticario.com.br/sua_pagina_boticario_aqui', '_blank')}
+            className={`${styles.navLink} ${activeFilter === 'Boticário' ? styles.navLinkActive : ''}`}
+          >
+            O BOTICÁRIO
+          </button>
+          <button
+            onMouseEnter={() => setActiveFilter('promo')}
+            className={`${styles.promoBtn} ${activeFilter === 'promo' ? styles.promoBtnActive : ''}`}
+          >
+            PROMOÇÕES
+          </button>
         </nav>
       </header>
 
