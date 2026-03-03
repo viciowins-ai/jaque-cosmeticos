@@ -6,17 +6,29 @@ import { motion } from "framer-motion";
 
 const shelfItems = [
   { id: 1, name: "Sérum Revitalizante", brand: "Natura", price: "R$ 28,90", originalPrice: "R$ 50,00", discount: "-42%", isPromo: true, image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400", bgColor: "#fad3cd", height: 180 },
-  { id: 2, name: "Base Líquida Cokimiora", brand: "Avon", price: "R$ 12,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=400", bgColor: "#f5d3cf", height: 160 },
-  { id: 3, name: "Perfume Frma Plotloa", brand: "Boticário", price: "R$ 28,90", originalPrice: "R$ 40,00", discount: "-28%", isPromo: true, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400", bgColor: "#b3dfd1", height: 190 },
-  { id: 4, name: "Óleo Corporal Malal", brand: "Natura", price: "R$ 12,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", bgColor: "#f6e4cc", height: 150 },
-  { id: 5, name: "Tônico Caroac Vork", brand: "Avon", price: "R$ 18,90", originalPrice: "R$ 25,00", discount: "-24%", isPromo: true, image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400", bgColor: "#facdcd", height: 170 },
-  { id: 6, name: "Paleta Samo Neran", brand: "Boticário", price: "R$ 18,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=400", bgColor: "#f2ece4", height: 140 },
+  { id: 2, name: "Base Líquida Matte", brand: "Avon", price: "R$ 12,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=400", bgColor: "#f5d3cf", height: 160 },
+  { id: 3, name: "Deo Colônia Frescor", brand: "Boticário", price: "R$ 28,90", originalPrice: "R$ 40,00", discount: "-28%", isPromo: true, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400", bgColor: "#b3dfd1", height: 190 },
+  { id: 4, name: "Óleo Corporal Amêndoas", brand: "Natura", price: "R$ 12,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", bgColor: "#f6e4cc", height: 150 },
+  { id: 5, name: "Tônico Facial Cuidado", brand: "Avon", price: "R$ 18,90", originalPrice: "R$ 25,00", discount: "-24%", isPromo: true, image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400", bgColor: "#facdcd", height: 170 },
+  { id: 6, name: "Paleta de Sombras Nude", brand: "Boticário", price: "R$ 18,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=400", bgColor: "#f2ece4", height: 140 },
   { id: 7, name: "Creme Hidratante Dia", brand: "Natura", price: "R$ 34,90", originalPrice: "R$ 50,00", discount: "-30%", isPromo: true, image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400", bgColor: "#fad3cd", height: 180 },
   { id: 8, name: "Gloss Labial Brilho", brand: "Avon", price: "R$ 15,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=400", bgColor: "#f5d3cf", height: 160 },
   { id: 9, name: "Perfume Intenso Noite", brand: "Boticário", price: "R$ 45,90", originalPrice: "R$ 65,00", discount: "-29%", isPromo: true, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400", bgColor: "#b3dfd1", height: 190 },
   { id: 10, name: "Loção Corporal Suave", brand: "Natura", price: "R$ 22,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", bgColor: "#f6e4cc", height: 150 },
   { id: 11, name: "Água Micelar Limpeza", brand: "Avon", price: "R$ 19,90", originalPrice: "R$ 28,00", discount: "-28%", isPromo: true, image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400", bgColor: "#facdcd", height: 170 },
   { id: 12, name: "Sombra Duo Cores", brand: "Boticário", price: "R$ 24,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=400", bgColor: "#f2ece4", height: 140 },
+  { id: 13, name: "Sabonete Líquido Relax", brand: "Natura", price: "R$ 18,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400", bgColor: "#fad3cd", height: 180 },
+  { id: 14, name: "Delineador Líquido Preto", brand: "Avon", price: "R$ 22,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=400", bgColor: "#f5d3cf", height: 160 },
+  { id: 15, name: "Body Splash Frescor", brand: "Boticário", price: "R$ 54,90", originalPrice: "R$ 70,00", discount: "-21%", isPromo: true, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400", bgColor: "#b3dfd1", height: 190 },
+  { id: 16, name: "Desodorante Spray", brand: "Natura", price: "R$ 24,90", originalPrice: "R$ 30,00", discount: "-17%", isPromo: true, image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", bgColor: "#f6e4cc", height: 150 },
+  { id: 17, name: "Máscara de Cílios Volume", brand: "Avon", price: "R$ 29,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400", bgColor: "#facdcd", height: 170 },
+  { id: 18, name: "Creme Nutritivo Mãos", brand: "Boticário", price: "R$ 21,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=400", bgColor: "#f2ece4", height: 140 },
+  { id: 19, name: "Shampoo Fortalecedor", brand: "Natura", price: "R$ 19,90", originalPrice: "R$ 25,00", discount: "-20%", isPromo: true, image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400", bgColor: "#fad3cd", height: 180 },
+  { id: 20, name: "Batom Matte Vermelho", brand: "Avon", price: "R$ 16,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=400", bgColor: "#f5d3cf", height: 160 },
+  { id: 21, name: "Loção Pós Barba Fresh", brand: "Boticário", price: "R$ 42,90", originalPrice: "R$ 55,00", discount: "-22%", isPromo: true, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400", bgColor: "#b3dfd1", height: 190 },
+  { id: 22, name: "Batom Cremoso Hidratante", brand: "Natura", price: "R$ 14,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", bgColor: "#f6e4cc", height: 150 },
+  { id: 23, name: "Pó Compacto Facial", brand: "Avon", price: "R$ 32,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400", bgColor: "#facdcd", height: 170 },
+  { id: 24, name: "Sabonete Líquido Facial", brand: "Boticário", price: "R$ 28,90", originalPrice: "R$ 35,00", discount: "-17%", isPromo: true, image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=400", bgColor: "#f2ece4", height: 140 },
 ];
 
 // URLs for floating background products (using transparent-looking or cutout styles from prior requests/Pexels)
@@ -31,7 +43,7 @@ const floatingImages = [
 export default function Home() {
   const shelfRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
+  const [activeFilter, setActiveFilter] = useState<string | null>('Natura');
 
   const filteredItems = activeFilter
     ? activeFilter === 'promo' ? shelfItems.filter(item => item.isPromo) : shelfItems.filter(item => item.brand === activeFilter)
@@ -76,15 +88,15 @@ export default function Home() {
 
       {/* Header */}
       <header className={styles.header}>
-        <div className={styles.logoBlock}>
+        <div className={styles.logoBlock} onClick={() => setActiveFilter(null)} style={{ cursor: 'pointer' }}>
           <h1 className={styles.logoMain}>JACK</h1>
           <h2 className={styles.logoSub}>COSMÉTICOS</h2>
         </div>
         <nav className={styles.navMenu}>
-          <button onClick={() => setActiveFilter(activeFilter === 'Natura' ? null : 'Natura')} className={`${styles.navLink} ${activeFilter === 'Natura' ? styles.navLinkActive : ''}`}>NATURA</button>
-          <button onClick={() => setActiveFilter(activeFilter === 'Avon' ? null : 'Avon')} className={`${styles.navLink} ${activeFilter === 'Avon' ? styles.navLinkActive : ''}`}>AVON</button>
-          <button onClick={() => setActiveFilter(activeFilter === 'Boticário' ? null : 'Boticário')} className={`${styles.navLink} ${activeFilter === 'Boticário' ? styles.navLinkActive : ''}`}>O BOTICÁRIO</button>
-          <button onClick={() => setActiveFilter(activeFilter === 'promo' ? null : 'promo')} className={`${styles.promoBtn} ${activeFilter === 'promo' ? styles.promoBtnActive : ''}`}>PROMOÇÕES</button>
+          <button onMouseEnter={() => setActiveFilter('Natura')} className={`${styles.navLink} ${activeFilter === 'Natura' ? styles.navLinkActive : ''}`}>NATURA</button>
+          <button onMouseEnter={() => setActiveFilter('Avon')} className={`${styles.navLink} ${activeFilter === 'Avon' ? styles.navLinkActive : ''}`}>AVON</button>
+          <button onMouseEnter={() => setActiveFilter('Boticário')} className={`${styles.navLink} ${activeFilter === 'Boticário' ? styles.navLinkActive : ''}`}>O BOTICÁRIO</button>
+          <button onMouseEnter={() => setActiveFilter('promo')} className={`${styles.promoBtn} ${activeFilter === 'promo' ? styles.promoBtnActive : ''}`}>PROMOÇÕES</button>
         </nav>
       </header>
 
@@ -140,19 +152,17 @@ export default function Home() {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
         </button>
 
-        <motion.div
+        <div
           ref={shelfRef}
           className={styles.shelfScroll}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
         >
           {filteredItems.map((item) => (
             <motion.div
               key={item.id}
               className={styles.card}
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 24 }}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               onClick={() => router.push(`/produto/${item.id}`)}
               style={{ cursor: 'pointer' }}
@@ -191,7 +201,7 @@ export default function Home() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         <button className={`${styles.navArrow} ${styles.navRight}`} onClick={() => scrollShelf('right')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
