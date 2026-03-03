@@ -1,4 +1,6 @@
+import re
 
+css_code = """
 .main { font-family: 'Outfit', sans-serif; color: #fff; min-height: 100vh; position: relative; overflow: hidden; padding-bottom: 60px; }
 .floatingContainer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; }
 .bgVideo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; width: auto; height: auto; object-fit: cover; opacity: 0.8; }
@@ -72,3 +74,7 @@
 .addToCartBtn:hover { background: #c9661c; }
 .accordionItem { background: white; border-radius: 12px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-weight: 500; font-size: 1.05rem; color: #111; cursor: pointer; }
 @media (max-width: 900px) { .contentWrapper { grid-template-columns: 1fr; padding: 20px; } }
+"""
+
+with open("c:/Users/humbe/.gemini/antigravity/scratch/jaque-cosmeticos/src/app/produto/[id]/produto.module.css", "w", encoding="utf-8") as f:
+    f.write(css_code)
