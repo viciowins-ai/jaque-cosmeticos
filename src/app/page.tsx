@@ -101,15 +101,15 @@ export default function Home() {
             NATURA
           </button>
           <button
-            onMouseEnter={() => setActiveFilter('Avon')}
+            onMouseEnter={() => setActiveFilter('Boticário')}
             onClick={() => window.open('https://minhaloja.grupoboticario.com.br/jaquelin', '_blank')}
-            className={`${styles.navLink} ${activeFilter === 'Avon' ? styles.navLinkActive : ''}`}
+            className={`${styles.navLink} ${activeFilter === 'Boticário' ? styles.navLinkActive : ''}`}
           >
-            AVON
+            GRUPO BOTICÁRIO
           </button>
           <button
             onMouseEnter={() => setActiveFilter('Boticário')}
-            onClick={() => window.open('https://minhaloja.grupoboticario.com.br/jaquelin', '_blank')}
+            onClick={() => window.open('https://minhaloja.boticario.com.br/jaquelin', '_blank')}
             className={`${styles.navLink} ${activeFilter === 'Boticário' ? styles.navLinkActive : ''}`}
           >
             O BOTICÁRIO
