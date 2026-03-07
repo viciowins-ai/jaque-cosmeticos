@@ -95,21 +95,21 @@ export default function Home() {
         <nav className={styles.navMenu}>
           <button
             onMouseEnter={() => setActiveFilter('Natura')}
-            onClick={() => window.open('https://www.natura.com.br/consultoria/sua_pagina_natura_aqui', '_blank')}
+            onClick={() => window.open('https://www.minhaloja.natura.com/consultoria/jaquelineanne', '_blank')}
             className={`${styles.navLink} ${activeFilter === 'Natura' ? styles.navLinkActive : ''}`}
           >
             NATURA
           </button>
           <button
             onMouseEnter={() => setActiveFilter('Avon')}
-            onClick={() => window.open('https://www.avon.com.br/sua_pagina_avon_aqui', '_blank')}
+            onClick={() => window.open('https://minhaloja.grupoboticario.com.br/jaquelin', '_blank')}
             className={`${styles.navLink} ${activeFilter === 'Avon' ? styles.navLinkActive : ''}`}
           >
             AVON
           </button>
           <button
             onMouseEnter={() => setActiveFilter('Boticário')}
-            onClick={() => window.open('https://www.boticario.com.br/sua_pagina_boticario_aqui', '_blank')}
+            onClick={() => window.open('https://minhaloja.grupoboticario.com.br/jaquelin', '_blank')}
             className={`${styles.navLink} ${activeFilter === 'Boticário' ? styles.navLinkActive : ''}`}
           >
             O BOTICÁRIO
