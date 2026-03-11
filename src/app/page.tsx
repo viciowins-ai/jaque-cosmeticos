@@ -29,6 +29,18 @@ const shelfItems = [
   { id: 22, name: "Batom Cremoso Hidratante", brand: "Natura", price: "R$ 14,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", bgColor: "#f6e4cc", height: 150 },
   { id: 23, name: "Pó Compacto Facial", brand: "Avon", price: "R$ 32,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400", bgColor: "#facdcd", height: 170 },
   { id: 24, name: "Sabonete Líquido Facial", brand: "Boticário", price: "R$ 28,90", originalPrice: "R$ 35,00", discount: "-17%", isPromo: true, image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=400", bgColor: "#f2ece4", height: 140 },
+  { id: 25, name: "Sérum Facial Dual", brand: "Eudora", price: "R$ 39,90", originalPrice: "R$ 55,00", discount: "-27%", isPromo: true, image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?auto=format&fit=crop&q=80&w=400", bgColor: "#e8d5f0", height: 180 },
+  { id: 26, name: "Perfume Feminino Floral", brand: "Eudora", price: "R$ 89,90", originalPrice: "R$ 120,00", discount: "-25%", isPromo: true, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400", bgColor: "#d8c8f0", height: 190 },
+  { id: 27, name: "Hidratante Corpo Delux", brand: "Eudora", price: "R$ 29,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400", bgColor: "#e0d0f5", height: 160 },
+  { id: 28, name: "Paleta Glitter Festival", brand: "Berenice", price: "R$ 49,90", originalPrice: "R$ 65,00", discount: "-23%", isPromo: true, image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=400", bgColor: "#ffd6e8", height: 175 },
+  { id: 29, name: "Batom Líquido Vibrante", brand: "Berenice", price: "R$ 22,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=400", bgColor: "#ffc8dc", height: 158 },
+  { id: 30, name: "Blush Duo Mágico", brand: "Berenice", price: "R$ 36,90", originalPrice: "R$ 48,00", discount: "-23%", isPromo: true, image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400", bgColor: "#ffcce0", height: 165 },
+  { id: 31, name: "Eau de Parfum Parisienne", brand: "O.U.i Paris", price: "R$ 129,90", originalPrice: "R$ 170,00", discount: "-24%", isPromo: true, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400", bgColor: "#d6ecf8", height: 195 },
+  { id: 32, name: "Creme Anti-Idade Paris", brand: "O.U.i Paris", price: "R$ 79,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", bgColor: "#cce0f0", height: 170 },
+  { id: 33, name: "Sérum Vitamina C Luxe", brand: "O.U.i Paris", price: "R$ 94,90", originalPrice: "R$ 130,00", discount: "-27%", isPromo: true, image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?auto=format&fit=crop&q=80&w=400", bgColor: "#b8d8f0", height: 182 },
+  { id: 34, name: "Base Matte Perfeita", brand: "Mary Kay", price: "R$ 59,90", originalPrice: "R$ 79,90", discount: "-25%", isPromo: true, image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=400", bgColor: "#fce4ec", height: 165 },
+  { id: 35, name: "Sérum TimeWise Repair", brand: "Mary Kay", price: "R$ 119,90", originalPrice: "R$ 160,00", discount: "-25%", isPromo: true, image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?auto=format&fit=crop&q=80&w=400", bgColor: "#f8c8d8", height: 185 },
+  { id: 36, name: "Batom Extensão de Cor", brand: "Mary Kay", price: "R$ 42,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400", bgColor: "#f5d0e0", height: 155 },
 ];
 
 // URLs for floating background products (using transparent-looking or cutout styles from prior requests/Pexels)
@@ -113,6 +125,34 @@ export default function Home() {
             className={`${styles.navLink} ${activeFilter === 'Boticário' ? styles.navLinkActive : ''}`}
           >
             O BOTICÁRIO
+          </button>
+          <button
+            onMouseEnter={() => setActiveFilter('Eudora')}
+            onClick={() => window.open('https://minhaloja.eudora.com.br/jaquelin', '_blank')}
+            className={`${styles.navLink} ${activeFilter === 'Eudora' ? styles.navLinkActive : ''}`}
+          >
+            EUDORA
+          </button>
+          <button
+            onMouseEnter={() => setActiveFilter('Berenice')}
+            onClick={() => window.open('https://minhaloja.quemdisseberenice.com.br/jaquelin', '_blank')}
+            className={`${styles.navLink} ${activeFilter === 'Berenice' ? styles.navLinkActive : ''}`}
+          >
+            QDB
+          </button>
+          <button
+            onMouseEnter={() => setActiveFilter('O.U.i Paris')}
+            onClick={() => window.open('https://minhaloja.ouiparis.com/jaquelin', '_blank')}
+            className={`${styles.navLink} ${activeFilter === 'O.U.i Paris' ? styles.navLinkActive : ''}`}
+          >
+            O.U.i PARIS
+          </button>
+          <button
+            onMouseEnter={() => setActiveFilter('Mary Kay')}
+            onClick={() => window.open('https://lojaconsultora.marykay.com.br/jaqueline-ortiz-de-oliveira/8XGowcqwYaSD', '_blank')}
+            className={`${styles.navLink} ${activeFilter === 'Mary Kay' ? styles.navLinkActive : ''}`}
+          >
+            MARY KAY
           </button>
           <button
             onMouseEnter={() => setActiveFilter('promo')}

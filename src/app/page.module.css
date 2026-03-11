@@ -75,15 +75,25 @@
 .navMenu {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 20px;
+  overflow-x: auto;
+  max-width: 70vw;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.navMenu::-webkit-scrollbar {
+  display: none;
 }
 
 .navLink {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   transition: opacity 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .navLink:hover,
