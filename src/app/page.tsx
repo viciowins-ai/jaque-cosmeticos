@@ -53,19 +53,28 @@ const floatingImages = [
 ];
 
 export default function Home() {
-  const shelfRef = useRef<HTMLDivElement>(null);
+  const lancamentosRef = useRef<HTMLDivElement>(null);
+  const prontaEntregaRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const [activeFilter, setActiveFilter] = useState<string | null>('Natura');
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
   const filteredItems = activeFilter
     ? activeFilter === 'promo' ? shelfItems.filter(item => item.isPromo) : shelfItems.filter(item => item.brand === activeFilter)
     : shelfItems;
 
 
-  const scrollShelf = (direction: 'left' | 'right') => {
-    if (shelfRef.current) {
-      const scrollAmount = direction === 'left' ? -320 : 320;
-      shelfRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  const lancamentosItems = shelfItems.slice(0, 10);
+  
+  const catalogs = [
+    { id: 1, title: 'Revista O Boticário', img: 'https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400', link: 'https://minhaloja.boticario.com.br/jaquelin' },
+    { id: 2, title: 'Revista Eudora', img: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=400', link: 'https://minhaloja.eudora.com.br/jaquelin' },
+    { id: 3, title: 'Revista O.U.i Paris', img: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&q=80&w=400', link: 'https://minhaloja.ouiparis.com/jaquelin' }
+  ];
+
+  const scrollShelf = (ref: React.RefObject<HTMLDivElement | null>, direction: 'left' | 'right') => {
+    if (ref.current) {
+      const scrollAmount = direction === 'left' ? -350 : 350;
+      ref.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
   const containerVariants = {
@@ -209,16 +218,139 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Product Shelf */}
+            {/* Navegue pelas marcas */}
+      <section className={styles.categorySection}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Navegue pelas marcas</h2>
+        </div>
+        <div className={styles.brandCircles}>
+          {[
+            { 
+              name: 'O Boticário', color: '#00a368', 
+              icon: <img src="https://minhaloja.grupoboticario.com.br/images/boticario.png" alt="O Boticário" style={{ width: '34px', height: '34px', objectFit: 'contain' }} />
+            },
+            { 
+              name: 'Eudora', color: '#54324c', 
+              icon: <img src="https://minhaloja.grupoboticario.com.br/images/eud.png" alt="Eudora" style={{ width: '42px', height: '42px', objectFit: 'contain' }} /> 
+            },
+            { 
+              name: 'O.U.i Paris', color: '#b01c37', 
+              icon: <img src="https://minhaloja.grupoboticario.com.br/images/oui.png" alt="O.U.i" style={{ width: '56px', height: '56px', objectFit: 'contain' }} /> 
+            },
+            { 
+              name: 'Berenice', color: '#e52b82', 
+              icon: <img src="https://minhaloja.grupoboticario.com.br/images/qdb.png" alt="Quem Disse, Berenice" style={{ width: '40px', height: '40px', objectFit: 'contain' }} /> 
+            },
+            { 
+              name: 'Natura', color: '#F48120', 
+              icon: <span style={{ color: 'white', fontSize: '0.9rem', fontWeight: 'bold' }}>Natura</span> 
+            },
+            { 
+              name: 'Mary Kay', color: '#e53935', 
+              icon: <span style={{ color: 'white', fontSize: '1.2rem', fontWeight: 'bold' }}>MK</span> 
+            }
+          ].map((b) => (
+             <div key={b.name} className={styles.brandBadge} onClick={() => setActiveFilter(b.name)}>
+               <div className={styles.brandCircle} style={{ background: b.color, border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '70px', height: '70px', borderRadius: '50%' }}>
+                  {b.icon}
+               </div>
+               <span className={styles.brandName} style={{ textAlign: 'center', whiteSpace: 'pre-line' }}>{b.name === 'Berenice' ? 'Quem disse,\nBerenice?' : b.name}</span>
+             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Lançamentos Shelf */}
       <section className={styles.shelfSection}>
-        <button className={`${styles.navArrow} ${styles.navLeft}`} onClick={() => scrollShelf('left')}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Lançamentos</h2>
+          <button className={styles.verTudoBtn}>Ver tudo</button>
+        </div>
+        <button className={`${styles.navArrow} ${styles.navLeft}`} onClick={() => scrollShelf(lancamentosRef, 'left')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
         </button>
 
-        <div
-          ref={shelfRef}
-          className={styles.shelfScroll}
-        >
+        <div ref={lancamentosRef} className={styles.shelfScroll}>
+          {lancamentosItems.map((item) => (
+            <motion.div
+              key={item.id}
+              className={styles.card}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 24 }}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              onClick={() => router.push(`/produto/${item.id}`)}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className={styles.cardPastelBg} style={{ backgroundColor: item.bgColor }}>
+                <button className={styles.heartBtn}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+                <img src={item.image} alt={item.name} className={styles.cardImg} />
+                <img src={item.hoverImage} alt={`${item.name} em uso`} className={styles.cardHoverImg} />
+              </div>
+              <div className={styles.cardInfo}>
+                <div className={styles.cardHeaderRow}>
+                  <span className={styles.cardBrand}>{item.brand}</span>
+                  <div className={styles.cardRating}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <span>4.9</span>
+                  </div>
+                </div>
+                <h3 className={styles.cardTitle}>{item.name}</h3>
+
+                <div className={styles.pricingBlock}>
+                  {item.originalPrice && (
+                    <div className={styles.oldPriceRow}>
+                      <span className={styles.oldPrice}>{item.originalPrice}</span>
+                    </div>
+                  )}
+                  <div className={styles.currentPriceRow}>
+                    <span className={styles.cardPrice}>{item.price}</span>
+                    {item.discount && <span className={styles.discountBadge}>{item.discount}</span>}
+                  </div>
+                  <span className={styles.installmentText}>ou 4x de R$ 7,22 sem juros</span>
+                </div>
+
+                <button className={styles.comprarBtn}>adicionar à sacola</button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <button className={`${styles.navArrow} ${styles.navRight}`} onClick={() => scrollShelf(lancamentosRef, 'right')}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+        </button>
+      </section>
+
+      {/* Catálogos Digitais */}
+      <section className={styles.categorySection}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Veja os catálogos digitais</h2>
+        </div>
+        <div className={styles.catalogGrid}>
+           {catalogs.map(catalog => (
+             <div key={catalog.id} className={styles.catalogCard} onClick={() => window.open(catalog.link, '_blank')}>
+                <img src={catalog.img} alt={catalog.title} className={styles.catalogImg} />
+                <div className={styles.catalogOverlay}>
+                   <h3 className={styles.catalogTitle}>{catalog.title}</h3>
+                </div>
+             </div>
+           ))}
+        </div>
+      </section>
+
+      {/* Produtos à Pronta-Entrega */}
+      <section className={styles.shelfSection}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Produtos a Pronta-Entrega</h2>
+          <button className={styles.verTudoBtn} onClick={() => setActiveFilter(null)}>Ver tudo</button>
+        </div>
+        <button className={`${styles.navArrow} ${styles.navLeft}`} onClick={() => scrollShelf(prontaEntregaRef, 'left')}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+        </button>
+
+        <div ref={prontaEntregaRef} className={styles.shelfScroll}>
           {filteredItems.map((item) => (
             <motion.div
               key={item.id}
@@ -266,12 +398,12 @@ export default function Home() {
           ))}
         </div>
 
-        <button className={`${styles.navArrow} ${styles.navRight}`} onClick={() => scrollShelf('right')}>
+        <button className={`${styles.navArrow} ${styles.navRight}`} onClick={() => scrollShelf(prontaEntregaRef, 'right')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
         </button>
       </section>
 
-      {/* Sticky Bottom Footer */}
+{/* Sticky Bottom Footer */}
       <motion.footer
         className={styles.bottomFooter}
         initial={{ y: 100 }}
@@ -299,3 +431,4 @@ export default function Home() {
     </main >
   );
 }
+

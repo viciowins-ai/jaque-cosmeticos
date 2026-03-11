@@ -10,11 +10,11 @@
 
 /* Background Video */
 .floatingContainer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
@@ -529,4 +529,149 @@
 .footerBuyBtn:hover {
   filter: brightness(0.9);
   transform: translateY(-2px);
+}
+/* Novos Estilos Adicionados (Navegacao Marcas, Lancamentos, Catalogos) */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-right: 60px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.verTudoBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.verTudoBtn:hover {
+  background: white;
+  color: #333;
+}
+
+.categorySection {
+  padding: 0 60px;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.brandCircles {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.brandBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.brandBadge:hover {
+  transform: translateY(-5px);
+}
+
+.brandCircle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.brandBadge:hover .brandCircle {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.brandName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.catalogGrid {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scrollbar-width: none;
+}
+.catalogGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.catalogCard {
+  min-width: 320px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.catalogCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.catalogImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s ease;
+}
+.catalogCard:hover .catalogImg {
+  transform: scale(1.08);
+}
+.catalogOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+.catalogTitle {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
