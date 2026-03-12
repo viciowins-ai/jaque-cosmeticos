@@ -5,6 +5,163 @@ import styles from "./page.module.css";
 import { motion } from "framer-motion";
 
 const shelfItems = [
+  {
+    "id": 100,
+    "name": "Kit Body Spray Desodorante Egeo Blue 100Ml (2 Unidades)",
+    "brand": "Boticário",
+    "price": "R$ 71,85",
+    "originalPrice": "",
+    "discount": "",
+    "isPromo": false,
+    "image": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/B90370/4e5be03f-7652-4453-a146-d8140dad3501-bot-90370-egeo-blue-promopack.jpg",
+    "hoverImage": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/B90370/4e5be03f-7652-4453-a146-d8140dad3501-bot-90370-egeo-blue-promopack.jpg",
+    "bgColor": "#e8d5f0",
+    "height": 180
+  },
+  {
+    "id": 101,
+    "name": "[Eud - Vd] Lançamento Mães 2026 - Combo Baunilha Intensa Com Até 21% De Desconto",
+    "brand": "Eudora",
+    "price": "R$ 49,90",
+    "originalPrice": "R$ 63,88",
+    "discount": "-22%",
+    "isPromo": true,
+    "image": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/95908GG.jpg",
+    "hoverImage": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/95908GG.jpg",
+    "bgColor": "#fad3cd",
+    "height": 160
+  },
+  {
+    "id": 102,
+    "name": "O.U.I Mon Amie 037 Eau De Parfum Feminino 30Ml",
+    "brand": "O.U.i Paris",
+    "price": "R$ 199,00",
+    "originalPrice": "",
+    "discount": "",
+    "isPromo": false,
+    "image": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/Z85361/0d1e2fc2-bc0d-4e68-a9ff-0db588399709-oui-85161-oui-edp-mon-amie-037-30ml-1.jpg",
+    "hoverImage": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/Z85361/7fb33c57-e862-4972-b0e5-e9c743ec6791-oui-85165-oui-edp-mon-amie-037-75ml-piramide.jpg",
+    "bgColor": "#f6e4cc",
+    "height": 190
+  },
+  {
+    "id": 103,
+    "name": "Estj Lily V3",
+    "brand": "Boticário",
+    "price": "R$ 169,90",
+    "originalPrice": "",
+    "discount": "",
+    "isPromo": false,
+    "image": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/89302GG.jpg",
+    "hoverImage": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/89302GG.jpg",
+    "bgColor": "#facdcd",
+    "height": 150
+  },
+  {
+    "id": 104,
+    "name": "[Eud - Vd] Mães 2026 - Combo Siàge Cica-Therapy Com Até 21% De Desconto",
+    "brand": "Eudora",
+    "price": "R$ 79,90",
+    "originalPrice": "R$ 101,88",
+    "discount": "-22%",
+    "isPromo": true,
+    "image": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/95906GG.jpg",
+    "hoverImage": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/95906GG.jpg",
+    "bgColor": "#f2ece4",
+    "height": 170
+  },
+  {
+    "id": 105,
+    "name": "Presente Mon Amie 037",
+    "brand": "O.U.i Paris",
+    "price": "R$ 346,00",
+    "originalPrice": "R$ 411,90",
+    "discount": "-16%",
+    "isPromo": true,
+    "image": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/95622GG.jpg",
+    "hoverImage": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/95622GG.jpg",
+    "bgColor": "#b3dfd1",
+    "height": 140
+  },
+  {
+    "id": 106,
+    "name": "Refil Loção Desodorante Hidratante Corporal Cuide-Se Bem Boa Noite 350Ml",
+    "brand": "Boticário",
+    "price": "R$ 41,90",
+    "originalPrice": "R$ 59,90",
+    "discount": "-30%",
+    "isPromo": true,
+    "image": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/B88693/d6465e10-09f3-4816-9ee7-758cb3996c7a-bot-88693-cuide-se-bem-boa-noite-refil-01.jpg",
+    "hoverImage": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/B88693/e19db0a1-6de6-4111-9f59-83feb3209e4e-bot-88693-cuide-se-bem-boa-noite-refil-03.jpg",
+    "bgColor": "#f5d3cf",
+    "height": 175
+  },
+  {
+    "id": 107,
+    "name": "Instance Cr Hid Maos Baun/Intensa 30G",
+    "brand": "Eudora",
+    "price": "R$ 19,99",
+    "originalPrice": "",
+    "discount": "",
+    "isPromo": false,
+    "image": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/86226GG.jpg",
+    "hoverImage": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/86226GG.jpg",
+    "bgColor": "#d8c8f0",
+    "height": 158
+  },
+  {
+    "id": 108,
+    "name": "O.U.I Mon Amie 037 Eau De Parfum Feminino 75Ml",
+    "brand": "O.U.i Paris",
+    "price": "R$ 347,01",
+    "originalPrice": "R$ 379,00",
+    "discount": "-8%",
+    "isPromo": true,
+    "image": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/Z85165/3ec25272-25e2-4749-a00c-906927b09adf-oui-85165-oui-edp-mon-amie-037-75ml-1.jpg",
+    "hoverImage": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/Z85165/e93cfec7-1045-40f9-b9a8-3207e9e86597-oui-85165-oui-edp-mon-amie-037-75ml-piramide.jpg",
+    "bgColor": "#e0d0f5",
+    "height": 165
+  },
+  {
+    "id": 109,
+    "name": "Botik Vitamina C 10% Sérum De Alta Potência, 30 Ml",
+    "brand": "Boticário",
+    "price": "R$ 159,90",
+    "originalPrice": "R$ 199,90",
+    "discount": "-20%",
+    "isPromo": true,
+    "image": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/87602GG.jpg",
+    "hoverImage": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/87602GG.jpg",
+    "bgColor": "#ffd6e8",
+    "height": 195
+  },
+  {
+    "id": 110,
+    "name": "Instance Creme Hidratante Desodorante Corporal Baunilha Intensa 400Ml",
+    "brand": "Eudora",
+    "price": "R$ 48,90",
+    "originalPrice": "R$ 58,99",
+    "discount": "-17%",
+    "isPromo": true,
+    "image": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/86225GG.jpg",
+    "hoverImage": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/86225GG.jpg",
+    "bgColor": "#e8d5f0",
+    "height": 182
+  },
+  {
+    "id": 111,
+    "name": "O.U.I Balm Aveludado Desodorante Corporal Mon Amie 037 200G",
+    "brand": "O.U.i Paris",
+    "price": "R$ 199,00",
+    "originalPrice": "",
+    "discount": "",
+    "isPromo": false,
+    "image": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/Z85171/a111ba8c-0714-41da-a8c0-fb34a1e241f8-oui-85171-oui-hidratante-corporal-mon-amie-037-200g-1.jpg",
+    "hoverImage": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/Z85171/20fc7a9b-c01f-4284-8c5e-871131732ccb-oui-85171-oui-hidratante-corporal-mon-amie-037-200g-card.jpg",
+    "bgColor": "#fad3cd",
+    "height": 185
+  }
+,
   { id: 1, name: "Combo Baunilha Intensa (Mães)", brand: "Eudora", price: "R$ 49,90", originalPrice: "R$ 63,88", discount: "-22%", isPromo: true, image: "https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400", bgColor: "#e8d5f0", height: 180 },
   { id: 2, name: "Presente Mon Amie 037", brand: "O.U.i Paris", price: "R$ 346,00", originalPrice: "R$ 411,90", discount: "-16%", isPromo: true, image: "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg?auto=compress&cs=tinysrgb&w=300", hoverImage: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", bgColor: "#fad3cd", height: 160 },
   { id: 3, name: "Lily L'Eau Desodorante 75ml", brand: "Boticário", price: "R$ 169,90", originalPrice: "", discount: "", isPromo: false, image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=300", hoverImage: "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400", bgColor: "#f6e4cc", height: 190 },
@@ -63,7 +220,7 @@ export default function Home() {
     : shelfItems;
 
 
-  const lancamentosItems = shelfItems.slice(0, 10);
+  const lancamentosItems = shelfItems.slice(0, 12);
   
   const catalogs = [
     { id: 1, title: 'Revista O Boticário', img: 'https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400', link: 'https://minhaloja.boticario.com.br/jaquelin' },
@@ -211,7 +368,7 @@ export default function Home() {
              <div 
                key={b.name} 
                className={styles.brandBadge} 
-               onMouseEnter={() => setActiveFilter(b.name)}
+               onMouseEnter={() => setActiveFilter(b.name === 'O Boticário' ? 'Boticário' : b.name)}
                onClick={() => window.open(b.link, '_blank')}
              >
                <div className={styles.brandCircle} style={{ background: b.color, border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '70px', height: '70px', borderRadius: '50%' }}>
