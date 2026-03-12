@@ -115,53 +115,11 @@ export default function Home() {
         </div>
         <nav className={styles.navMenu}>
           <button
-            onMouseEnter={() => setActiveFilter('Natura')}
-            onClick={() => window.open('https://www.minhaloja.natura.com/consultoria/jaquelineanne', '_blank')}
-            className={`${styles.navLink} ${activeFilter === 'Natura' ? styles.navLinkActive : ''}`}
-          >
-            NATURA
-          </button>
-          <button
             onMouseEnter={() => setActiveFilter('Boticário')}
             onClick={() => window.open('https://minhaloja.grupoboticario.com.br/jaquelin', '_blank')}
             className={`${styles.navLink} ${activeFilter === 'Boticário' ? styles.navLinkActive : ''}`}
           >
             GRUPO BOTICÁRIO
-          </button>
-          <button
-            onMouseEnter={() => setActiveFilter('Boticário')}
-            onClick={() => window.open('https://minhaloja.boticario.com.br/jaquelin', '_blank')}
-            className={`${styles.navLink} ${activeFilter === 'Boticário' ? styles.navLinkActive : ''}`}
-          >
-            O BOTICÁRIO
-          </button>
-          <button
-            onMouseEnter={() => setActiveFilter('Eudora')}
-            onClick={() => window.open('https://minhaloja.eudora.com.br/jaquelin', '_blank')}
-            className={`${styles.navLink} ${activeFilter === 'Eudora' ? styles.navLinkActive : ''}`}
-          >
-            EUDORA
-          </button>
-          <button
-            onMouseEnter={() => setActiveFilter('Berenice')}
-            onClick={() => window.open('https://minhaloja.quemdisseberenice.com.br/jaquelin', '_blank')}
-            className={`${styles.navLink} ${activeFilter === 'Berenice' ? styles.navLinkActive : ''}`}
-          >
-            QDB
-          </button>
-          <button
-            onMouseEnter={() => setActiveFilter('O.U.i Paris')}
-            onClick={() => window.open('https://minhaloja.ouiparis.com/jaquelin', '_blank')}
-            className={`${styles.navLink} ${activeFilter === 'O.U.i Paris' ? styles.navLinkActive : ''}`}
-          >
-            O.U.i PARIS
-          </button>
-          <button
-            onMouseEnter={() => setActiveFilter('Mary Kay')}
-            onClick={() => window.open('https://lojaconsultora.marykay.com.br/jaqueline-ortiz-de-oliveira/8XGowcqwYaSD', '_blank')}
-            className={`${styles.navLink} ${activeFilter === 'Mary Kay' ? styles.navLinkActive : ''}`}
-          >
-            MARY KAY
           </button>
           <button
             onMouseEnter={() => setActiveFilter('promo')}
@@ -226,31 +184,36 @@ export default function Home() {
         <div className={styles.brandCircles}>
           {[
             { 
-              name: 'O Boticário', color: '#00a368', 
+              name: 'O Boticário', color: '#00a368', link: 'https://minhaloja.boticario.com.br/jaquelin',
               icon: <img src="https://minhaloja.grupoboticario.com.br/images/boticario.png" alt="O Boticário" style={{ width: '34px', height: '34px', objectFit: 'contain' }} />
             },
             { 
-              name: 'Eudora', color: '#54324c', 
+              name: 'Eudora', color: '#54324c', link: 'https://minhaloja.eudora.com.br/jaquelin',
               icon: <img src="https://minhaloja.grupoboticario.com.br/images/eud.png" alt="Eudora" style={{ width: '42px', height: '42px', objectFit: 'contain' }} /> 
             },
             { 
-              name: 'O.U.i Paris', color: '#b01c37', 
+              name: 'O.U.i Paris', color: '#b01c37', link: 'https://minhaloja.ouiparis.com/jaquelin',
               icon: <img src="https://minhaloja.grupoboticario.com.br/images/oui.png" alt="O.U.i" style={{ width: '56px', height: '56px', objectFit: 'contain' }} /> 
             },
             { 
-              name: 'Berenice', color: '#e52b82', 
+              name: 'Berenice', color: '#e52b82', link: 'https://minhaloja.quemdisseberenice.com.br/jaquelin',
               icon: <img src="https://minhaloja.grupoboticario.com.br/images/qdb.png" alt="Quem Disse, Berenice" style={{ width: '40px', height: '40px', objectFit: 'contain' }} /> 
             },
             { 
-              name: 'Natura', color: '#F48120', 
+              name: 'Natura', color: '#F48120', link: 'https://www.minhaloja.natura.com/consultoria/jaquelineanne',
               icon: <span style={{ color: 'white', fontSize: '0.9rem', fontWeight: 'bold' }}>Natura</span> 
             },
             { 
-              name: 'Mary Kay', color: '#e53935', 
+              name: 'Mary Kay', color: '#e53935', link: 'https://lojaconsultora.marykay.com.br/jaqueline-ortiz-de-oliveira/8XGowcqwYaSD',
               icon: <span style={{ color: 'white', fontSize: '1.2rem', fontWeight: 'bold' }}>MK</span> 
             }
           ].map((b) => (
-             <div key={b.name} className={styles.brandBadge} onClick={() => setActiveFilter(b.name)}>
+             <div 
+               key={b.name} 
+               className={styles.brandBadge} 
+               onMouseEnter={() => setActiveFilter(b.name)}
+               onClick={() => window.open(b.link, '_blank')}
+             >
                <div className={styles.brandCircle} style={{ background: b.color, border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '70px', height: '70px', borderRadius: '50%' }}>
                   {b.icon}
                </div>
