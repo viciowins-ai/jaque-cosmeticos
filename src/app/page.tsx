@@ -223,9 +223,10 @@ export default function Home() {
   const lancamentosItems = shelfItems.slice(0, 12);
   
   const catalogs = [
-    { id: 1, title: 'Revista O Boticário', img: 'https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400', link: 'https://minhaloja.boticario.com.br/jaquelin' },
-    { id: 2, title: 'Revista Eudora', img: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=400', link: 'https://minhaloja.eudora.com.br/jaquelin' },
-    { id: 3, title: 'Revista O.U.i Paris', img: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&q=80&w=400', link: 'https://minhaloja.ouiparis.com/jaquelin' }
+    { id: 1, title: 'Revista O Boticário', img: 'https://minhaloja-resources.grupoboticario.com.br/magazine/1632/page_1.webp', link: 'https://minhaloja.boticario.com.br/jaquelin' },
+    { id: 2, title: 'Revista Eudora', img: 'https://minhaloja-resources.grupoboticario.com.br/magazine/1634/page_1.webp', link: 'https://minhaloja.eudora.com.br/jaquelin' },
+    { id: 3, title: 'Revista O.U.i Paris', img: 'https://minhaloja-resources.grupoboticario.com.br/magazine/1615/page_1.webp', link: 'https://minhaloja.ouiparis.com/jaquelin' },
+    { id: 4, title: 'Revista Quem Disse, Berenice?', img: 'https://minhaloja-resources.grupoboticario.com.br/magazine/1616/page_1.webp', link: 'https://minhaloja.quemdisseberenice.com.br/jaquelin' }
   ];
 
   const scrollShelf = (ref: React.RefObject<HTMLDivElement | null>, direction: 'left' | 'right') => {
