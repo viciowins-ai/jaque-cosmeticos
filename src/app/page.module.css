@@ -650,31 +650,35 @@
 
 .catalogGrid {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   margin-top: 24px;
   overflow-x: auto;
-  padding-bottom: 20px;
-  scrollbar-width: none;
+  padding-bottom: 24px; /* Space for scrollbar */
 }
 .catalogGrid::-webkit-scrollbar {
-  display: none;
+  height: 12px;
+}
+.catalogGrid::-webkit-scrollbar-track {
+  background: #f4f4f4;
+}
+.catalogGrid::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  border: 3px solid #f4f4f4;
 }
 
 .catalogCard {
-  min-width: 320px;
-  height: 200px;
-  border-radius: 16px;
-  overflow: hidden;
+  min-width: 250px;
+  height: 333px; /* Emulates a 3:4 aspect ratio */
   position: relative;
   cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #fff;
 }
 .catalogCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 .catalogImg {
   width: 100%;
@@ -683,23 +687,5 @@
   transition: 0.6s ease;
 }
 .catalogCard:hover .catalogImg {
-  transform: scale(1.08);
-}
-.catalogOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  display: flex;
-  align-items: flex-end;
-  padding: 24px;
-}
-.catalogTitle {
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 0;
-  letter-spacing: 0.5px;
+  transform: scale(1.03);
 }

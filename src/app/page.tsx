@@ -507,9 +507,6 @@ export default function Home() {
            {catalogs.map(catalog => (
              <div key={catalog.id} className={styles.catalogCard} onClick={() => window.open(catalog.link, '_blank')}>
                 <img src={catalog.img} alt={catalog.title} className={styles.catalogImg} />
-                <div className={styles.catalogOverlay}>
-                   <h3 className={styles.catalogTitle}>{catalog.title}</h3>
-                </div>
              </div>
            ))}
         </div>
