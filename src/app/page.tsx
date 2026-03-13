@@ -443,7 +443,17 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 24 }}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              onClick={() => router.push(`/produto/${item.id}`)}
+              onClick={() => {
+                const brandLink = [
+                  { name: 'O Boticário', link: 'https://minhaloja.boticario.com.br/jaquelin' },
+                  { name: 'Eudora', link: 'https://minhaloja.eudora.com.br/jaquelin' },
+                  { name: 'O.U.i Paris', link: 'https://minhaloja.ouiparis.com/jaquelin' },
+                  { name: 'Berenice', link: 'https://minhaloja.quemdisseberenice.com.br/jaquelin' },
+                  { name: 'Natura', link: 'https://www.minhaloja.natura.com/consultoria/jaquelineanne' },
+                  { name: 'Mary Kay', link: 'https://lojaconsultora.marykay.com.br/jaqueline-ortiz-de-oliveira/8XGowcqwYaSD' }
+                ].find(b => b.name === (item.brand === 'Boticário' ? 'O Boticário' : item.brand === 'Berenice' ? 'Berenice' : item.brand))?.link || 'https://minhaloja.grupoboticario.com.br/jaquelin';
+                window.open(brandLink, '_blank');
+              }}
               style={{ cursor: 'pointer' }}
             >
               <div className={styles.cardPastelBg}>
@@ -537,7 +547,17 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 24 }}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                onClick={() => router.push(`/produto/${item.id}`)}
+                onClick={() => {
+                  const brandLink = [
+                    { name: 'O Boticário', link: 'https://minhaloja.boticario.com.br/jaquelin' },
+                    { name: 'Eudora', link: 'https://minhaloja.eudora.com.br/jaquelin' },
+                    { name: 'O.U.i Paris', link: 'https://minhaloja.ouiparis.com/jaquelin' },
+                    { name: 'Berenice', link: 'https://minhaloja.quemdisseberenice.com.br/jaquelin' },
+                    { name: 'Natura', link: 'https://www.minhaloja.natura.com/consultoria/jaquelineanne' },
+                    { name: 'Mary Kay', link: 'https://lojaconsultora.marykay.com.br/jaqueline-ortiz-de-oliveira/8XGowcqwYaSD' }
+                  ].find(b => b.name === (item.brand === 'Boticário' ? 'O Boticário' : item.brand === 'Berenice' ? 'Berenice' : item.brand))?.link || 'https://minhaloja.grupoboticario.com.br/jaquelin';
+                  window.open(brandLink, '_blank');
+                }}
                 style={{ cursor: 'pointer' }}
               >
                 <div className={styles.cardPastelBg}>
