@@ -856,7 +856,7 @@ export default function Home() {
 
   const filteredItems = activeFilter
     ? activeFilter === 'promo' ? shelfItems.filter(item => item.isPromo) : shelfItems.filter(item => item.brand === activeFilter)
-    : shelfItems;
+    : shelfItems.filter(item => item.brand === 'Boticário');
 
 
   const lancamentosItems = shelfItems.slice(0, 12);
