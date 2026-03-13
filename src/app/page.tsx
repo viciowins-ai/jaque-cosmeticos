@@ -428,9 +428,11 @@ export default function Home() {
           <h2 className={styles.sectionTitle}>Lançamentos</h2>
           <button className={styles.verTudoBtn}>Ver tudo</button>
         </div>
-        <button className={`${styles.navArrow} ${styles.navLeft}`} onClick={() => scrollShelf(lancamentosRef, 'left')}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-        </button>
+        {lancamentosItems.length > 4 && (
+          <button className={`${styles.navArrow} ${styles.navLeft}`} onClick={() => scrollShelf(lancamentosRef, 'left')}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+          </button>
+        )}
 
         <div ref={lancamentosRef} className={styles.shelfScroll}>
           {lancamentosItems.map((item) => (
@@ -493,9 +495,11 @@ export default function Home() {
           ))}
         </div>
 
-        <button className={`${styles.navArrow} ${styles.navRight}`} onClick={() => scrollShelf(lancamentosRef, 'right')}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-        </button>
+        {lancamentosItems.length > 4 && (
+          <button className={`${styles.navArrow} ${styles.navRight}`} onClick={() => scrollShelf(lancamentosRef, 'right')}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+          </button>
+        )}
       </section>
 
       {/* Catálogos Digitais */}
@@ -518,9 +522,11 @@ export default function Home() {
           <h2 className={styles.sectionTitle}>Produtos a Pronta-Entrega ({activeFilter || 'O Boticário'})</h2>
           <button className={styles.verTudoBtn} onClick={() => setActiveFilter(null)}>Ver tudo</button>
         </div>
-          <button className={`${styles.navArrow} ${styles.navLeft}`} onClick={() => scrollShelf(prontaEntregaRef, 'left')}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-          </button>
+          {filteredItems.length > 4 && (
+            <button className={`${styles.navArrow} ${styles.navLeft}`} onClick={() => scrollShelf(prontaEntregaRef, 'left')}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+            </button>
+          )}
 
           <div ref={prontaEntregaRef} className={styles.shelfScroll}>
             {filteredItems.map((item) => (
@@ -583,9 +589,11 @@ export default function Home() {
               ))}
             </div>
   
-            <button className={`${styles.navArrow} ${styles.navRight}`} onClick={() => scrollShelf(prontaEntregaRef, 'right')}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-            </button>
+            {filteredItems.length > 4 && (
+              <button className={`${styles.navArrow} ${styles.navRight}`} onClick={() => scrollShelf(prontaEntregaRef, 'right')}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+              </button>
+            )}
           </section>
 
 {/* Sticky Bottom Footer */}
