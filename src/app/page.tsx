@@ -872,9 +872,26 @@ export default function Home() {
   
   const getRibbonIcon = (brand: string) => {
       switch(brand.toLowerCase()) {
-         case 'eudora': return <svg viewBox="0 0 24 24" width="18" height="18" fill="white" style={{marginTop: '2px'}}><path d="M14 6H8v3h5v2H8v6h6v2H6V4h8v2z"/></svg>;
-         case 'o.u.i paris': return <span style={{color: 'white', fontSize: '9px', fontWeight: 'bold', marginTop: '6px', transform: 'scaleX(1.1)'}}>O.U.i</span>;
-         default: return <svg viewBox="0 0 24 24" width="16" height="16" fill="white" style={{marginTop: '4px'}}><path d="M14.6 4.7l-1-1.6c-.2-.4-.7-.6-1.1-.6h-1.1c-.5 0-.9.2-1.1.6l-1 1.6H8v2h8v-2h-1.4z"/><path d="M15 8H9v2h2v1H9v2h2v1H9v2h6v-2h-2v-1h2v-2h-2V10h2V8zM8 17v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4H8z"/></svg>;
+         case 'eudora': 
+            return (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="white" style={{ marginTop: '2px' }}>
+                    <path d="M17 5H8V4H6v2h1.5v12H6v2h2v-1h9v-2H9.5v-5h2.5l1.5-1.5L12 9H9.5V6H17V5z"/>
+                </svg>
+            );
+         case 'o.u.i paris': 
+            return (
+                 <svg viewBox="0 0 24 24" width="22" height="22" fill="white" style={{ marginTop: '2px' }}>
+                    <path d="M12 21c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9zm0-17.5c-4.69 0-8.5 3.81-8.5 8.5s3.81 8.5 8.5 8.5 8.5-3.81 8.5-8.5-3.81-8.5-8.5-8.5z" opacity="0.6"/>
+                    <path d="M12 4.5c.4 0 .8.4.8.8s-.4.8-.8.8-.8-.4-.8-.8.4-.8.8-.8zm4.5 2c.4.4.4.9 0 1.2-.4.4-.9.4-1.2 0-.4-.4-.4-.9 0-1.2.4-.4.9-.4 1.2 0zm2 4.5c0 .4-.4.8-.8.8s-.8-.4-.8-.8.4-.8.8-.8.8.4.8.8zm-2 4.5c-.4.4-.9.4-1.2 0-.4-.4-.4-.9 0-1.2.4-.4.9-.4 1.2 0 .4.4.4.9 0 1.2zm-4.5 2c-.4 0-.8-.4-.8-.8s.4-.8.8-.8.8.4.8.8-.4.8-.8.8zm-4.5-2c-.4-.4-.4-.9 0-1.2.4-.4.9-.4 1.2 0 .4.4.4.9 0 1.2-.4.4-.9.4-1.2 0zm-2-4.5c0-.4.4-.8.8-.8s.8.4.8.8-.4.8-.8.8-.8-.4-.8-.8zm2-4.5c.4-.4.9-.4 1.2 0 .4.4.4.9 0 1.2-.4.4-.9.4-1.2 0-.4-.4-.4-.9 0-1.2z" opacity="0.8"/>
+                    <text x="12" y="14.5" fill="white" fontSize="7" fontWeight="bold" textAnchor="middle" letterSpacing="0.2" fontFamily="sans-serif">O.U.i</text>
+                 </svg>
+            );
+         default: 
+            return (
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="white" style={{ marginTop: '3px' }}>
+                    <path d="M10 3h4v1.5 H10z M8.5 4.5h7v1.5h-7z M10 6h4v1.5h-4z M10 7.5h4 c2.5 0 4 2 4 5 s-1.5 5-4 5 h-4 c-2.5 0-4-2-4-5 s1.5-5 4-5z M8.5 17.5h7v1.5h-7z M10 19h4v2h-4z"/>
+                </svg>
+            );
       }
   };
   const catalogs = [
