@@ -230,9 +230,11 @@ export default function Home() {
   const router = useRouter();
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
+  const prontaEntregaItems = shelfItems.filter(item => item.id < 100 && item.brand === 'Boticário');
+
   const filteredItems = activeFilter
-    ? activeFilter === 'promo' ? shelfItems.filter(item => item.isPromo) : shelfItems.filter(item => item.brand === activeFilter)
-    : shelfItems.filter(item => item.brand === 'Boticário');
+    ? activeFilter === 'promo' ? prontaEntregaItems.filter(item => item.isPromo) : prontaEntregaItems.filter(item => item.brand === activeFilter)
+    : prontaEntregaItems;
 
 
   const lancamentosItems = shelfItems.slice(0, 12);
