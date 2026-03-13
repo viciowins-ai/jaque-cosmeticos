@@ -285,7 +285,12 @@ export default function Home() {
   const prontaEntregaBase = shelfItems.filter(item => item.id < 100);
 
   const filteredItems = activeFilter
-    ? activeFilter === 'promo' ? prontaEntregaBase.filter(item => item.isPromo) : prontaEntregaBase.filter(item => item.brand === activeFilter)
+    ? activeFilter === 'promo' 
+      ? prontaEntregaBase.filter(item => item.isPromo) 
+      : (() => {
+          const filtered = prontaEntregaBase.filter(item => item.brand === activeFilter);
+          return filtered.length > 0 ? filtered : prontaEntregaBase.filter(item => item.brand === 'Boticário');
+        })()
     : prontaEntregaBase.filter(item => item.brand === 'Boticário');
 
 
@@ -365,51 +370,7 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* Center Banner */}
-      <motion.section
-        className={styles.heroSection}
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className={styles.heroGlowBanner}>
-          <div className={styles.novidadesBadge}>🚚 PRONTA ENTREGA DA JACK</div>
-          <div className={styles.heroText}>
-            <span className={styles.heroPrice}>Até 50%</span>
-            <span className={styles.heroSubText}>DE DESCONTO</span>
-          </div>
-        </div>
-      </motion.section>
 
-      {/* Features Section */}
-      <motion.section
-        className={styles.featuresSection}
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <div className={styles.featureItem}>
-          <div className={styles.featureIcon}>🛍️</div>
-          <div>
-            <h4>Multimarcas</h4>
-            <p><strong>Natura</strong>, <strong>Avon</strong> e <strong>O Boticário</strong> a pronta-entrega.</p>
-          </div>
-        </div>
-        <div className={styles.featureItem}>
-          <div className={styles.featureIcon}>🔒</div>
-          <div>
-            <h4>Pagamento Seguro</h4>
-            <p>Aceitamos <strong>PIX</strong> para maior segurança na sua transação.</p>
-          </div>
-        </div>
-        <div className={styles.featureItem}>
-          <div className={styles.featureIcon}>📦</div>
-          <div>
-            <h4>Entrega Rápida</h4>
-            <p>Envios para todo o Brasil via <strong>Correios</strong> ou Transportadoras.</p>
-          </div>
-        </div>
-      </motion.section>
 
             {/* Navegue pelas marcas */}
       <section className={styles.categorySection}>
@@ -418,43 +379,46 @@ export default function Home() {
         </div>
         <div className={styles.brandCircles}>
           {[
-            { 
-              name: 'O Boticário', color: '#00a368', link: 'https://minhaloja.boticario.com.br/jaquelin',
-              icon: <img src="https://minhaloja.grupoboticario.com.br/images/boticario.png" alt="O Boticário" style={{ width: '34px', height: '34px', objectFit: 'contain' }} />
-            },
-            { 
-              name: 'Eudora', color: '#54324c', link: 'https://minhaloja.eudora.com.br/jaquelin',
-              icon: <img src="https://minhaloja.grupoboticario.com.br/images/eud.png" alt="Eudora" style={{ width: '42px', height: '42px', objectFit: 'contain' }} /> 
-            },
-            { 
-              name: 'O.U.i Paris', color: '#b01c37', link: 'https://minhaloja.ouiparis.com/jaquelin',
-              icon: <img src="https://minhaloja.grupoboticario.com.br/images/oui.png" alt="O.U.i" style={{ width: '56px', height: '56px', objectFit: 'contain' }} /> 
-            },
-            { 
-              name: 'Berenice', color: '#e52b82', link: 'https://minhaloja.quemdisseberenice.com.br/jaquelin',
-              icon: <img src="https://minhaloja.grupoboticario.com.br/images/qdb.png" alt="Quem Disse, Berenice" style={{ width: '40px', height: '40px', objectFit: 'contain' }} /> 
-            },
-            { 
-              name: 'Natura', color: '#F48120', link: 'https://www.minhaloja.natura.com/consultoria/jaquelineanne',
-              icon: <span style={{ color: 'white', fontSize: '0.9rem', fontWeight: 'bold' }}>Natura</span> 
-            },
-            { 
-              name: 'Mary Kay', color: '#e53935', link: 'https://lojaconsultora.marykay.com.br/jaqueline-ortiz-de-oliveira/8XGowcqwYaSD',
-              icon: <span style={{ color: 'white', fontSize: '1.2rem', fontWeight: 'bold' }}>MK</span> 
-            }
-          ].map((b) => (
-             <div 
-               key={b.name} 
-               className={styles.brandBadge} 
-               onMouseEnter={() => setActiveFilter(b.name === 'O Boticário' ? 'Boticário' : b.name)}
-               onClick={() => window.open(b.link, '_blank')}
-             >
-               <div className={styles.brandCircle} style={{ background: b.color, border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '70px', height: '70px', borderRadius: '50%' }}>
-                  {b.icon}
-               </div>
-               <span className={styles.brandName} style={{ textAlign: 'center', whiteSpace: 'pre-line' }}>{b.name === 'Berenice' ? 'Quem disse,\nBerenice?' : b.name}</span>
-             </div>
-          ))}
+             { 
+               name: 'O Boticário', color: '#00a368', link: 'https://minhaloja.boticario.com.br/jaquelin',
+               icon: <img src="https://minhaloja.grupoboticario.com.br/images/boticario.png" alt="O Boticário" style={{ width: '34px', height: '34px', objectFit: 'contain' }} />
+             },
+             { 
+               name: 'Eudora', color: '#54324c', link: 'https://minhaloja.eudora.com.br/jaquelin',
+               icon: <img src="https://minhaloja.grupoboticario.com.br/images/eud.png" alt="Eudora" style={{ width: '42px', height: '42px', objectFit: 'contain' }} /> 
+             },
+             { 
+               name: 'O.U.i Paris', color: '#b01c37', link: 'https://minhaloja.ouiparis.com/jaquelin',
+               icon: <img src="https://minhaloja.grupoboticario.com.br/images/oui.png" alt="O.U.i" style={{ width: '56px', height: '56px', objectFit: 'contain' }} /> 
+             },
+             { 
+               name: 'Berenice', color: '#e52b82', link: 'https://minhaloja.quemdisseberenice.com.br/jaquelin',
+               icon: <img src="https://minhaloja.grupoboticario.com.br/images/qdb.png" alt="Quem Disse, Berenice" style={{ width: '40px', height: '40px', objectFit: 'contain' }} /> 
+             },
+             { 
+               name: 'Natura', color: '#F48120', link: 'https://www.minhaloja.natura.com/consultoria/jaquelineanne',
+               icon: <span style={{ color: 'white', fontSize: '0.9rem', fontWeight: 'bold' }}>Natura</span> 
+             },
+             { 
+               name: 'Mary Kay', color: '#e53935', link: 'https://lojaconsultora.marykay.com.br/jaqueline-ortiz-de-oliveira/8XGowcqwYaSD',
+               icon: <span style={{ color: 'white', fontSize: '1.2rem', fontWeight: 'bold' }}>MK</span> 
+             }
+           ].map((b) => (
+              <div 
+                key={b.name} 
+                className={styles.brandBadge} 
+                onMouseEnter={() => setActiveFilter(b.name === 'O Boticário' ? 'Boticário' : b.name)}
+                onClick={() => {
+                  setActiveFilter(b.name === 'O Boticário' ? 'Boticário' : b.name);
+                  window.open(b.link, '_blank');
+                }}
+              >
+                <div className={styles.brandCircle} style={{ background: b.color, border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '70px', height: '70px', borderRadius: '50%' }}>
+                   {b.icon}
+                </div>
+                <span className={styles.brandName} style={{ textAlign: 'center', whiteSpace: 'pre-line' }}>{b.name === 'Berenice' ? 'Quem disse,\nBerenice?' : b.name}</span>
+              </div>
+           ))}
         </div>
       </section>
 
@@ -552,80 +516,80 @@ export default function Home() {
       </section>
 
       {/* Produtos à Pronta-Entrega */}
-      <section className={styles.shelfSection}>
+      <section className={styles.shelfSection} style={{ marginTop: '40px' }}>
         <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Produtos a Pronta-Entrega</h2>
+          <h2 className={styles.sectionTitle}>Produtos a Pronta-Entrega ({activeFilter || 'O Boticário'})</h2>
           <button className={styles.verTudoBtn} onClick={() => setActiveFilter(null)}>Ver tudo</button>
         </div>
-        <button className={`${styles.navArrow} ${styles.navLeft}`} onClick={() => scrollShelf(prontaEntregaRef, 'left')}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-        </button>
+          <button className={`${styles.navArrow} ${styles.navLeft}`} onClick={() => scrollShelf(prontaEntregaRef, 'left')}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+          </button>
 
-        <div ref={prontaEntregaRef} className={styles.shelfScroll}>
-          {filteredItems.map((item) => (
-            <motion.div
-              key={item.id}
-              className={styles.card}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 24 }}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              onClick={() => router.push(`/produto/${item.id}`)}
-              style={{ cursor: 'pointer' }}
-            >
-              <div className={styles.cardPastelBg}>
-                <img src={getRibbonImage(item.brand)} alt={`Tag ${item.brand}`} className={styles.productFlag} />
-                <button className={styles.heartBtn}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                </button>
-                <img src={item.image} alt={item.name} className={styles.cardImg} />
-                <img src={item.hoverImage} alt={`${item.name} em uso`} className={styles.cardHoverImg} />
-              </div>
-              <div className={styles.cardInfo}>
-                <div className={styles.cardHeaderRow}>
-                  <div className={styles.cardRatingStars}>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="transparent" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                  </div>
+          <div ref={prontaEntregaRef} className={styles.shelfScroll}>
+            {filteredItems.map((item) => (
+              <motion.div
+                key={item.id}
+                className={styles.card}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 24 }}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                onClick={() => router.push(`/produto/${item.id}`)}
+                style={{ cursor: 'pointer' }}
+              >
+                <div className={styles.cardPastelBg}>
+                  <img src={getRibbonImage(item.brand)} alt={`Tag ${item.brand}`} className={styles.productFlag} />
+                  <button className={styles.heartBtn}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  </button>
+                  <img src={item.image} alt={item.name} className={styles.cardImg} />
+                  <img src={item.hoverImage} alt={`${item.name} em uso`} className={styles.cardHoverImg} />
                 </div>
-                <h3 className={styles.cardTitle}>{item.name.length > 55 ? item.name.substring(0, 55) + '...' : item.name}</h3>
-
-                <div className={styles.badgesWrapper}>
-                  {item.brand.toLowerCase() === 'o.u.i paris' && <span className={styles.prontaEntregaLineBadge}>Vegano</span>}
-                  <span className={styles.prontaEntregaLineBadge}>Pronta-entrega</span>
-                  {item.discount && <span className={styles.discountBadge}>{item.discount}</span>}
-                </div>
-
-                <div className={styles.pricingBlock}>
-                  {item.originalPrice ? (
-                    <div className={styles.oldPriceRow}>
-                      <span className={styles.oldPriceLabel}>De</span>
-                      <span className={styles.oldPrice}>{item.originalPrice}</span>
-                      <span className={styles.oldPriceLabel}>por</span>
+                <div className={styles.cardInfo}>
+                  <div className={styles.cardHeaderRow}>
+                    <div className={styles.cardRatingStars}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="transparent" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     </div>
-                  ) : (
-                    <div className={styles.oldPriceRow}>
-                       <span className={styles.oldPriceLabel}>Por</span>
-                    </div>
-                  )}
-                  <div className={styles.currentPriceRow}>
-                    <span className={styles.cardPrice}>{item.price}</span>
                   </div>
-                </div>
+                  <h3 className={styles.cardTitle}>{item.name.length > 55 ? item.name.substring(0, 55) + '...' : item.name}</h3>
 
-                <button className={styles.verProdutoBtn}>Ver produto</button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                  <div className={styles.badgesWrapper}>
+                    {item.brand.toLowerCase() === 'o.u.i paris' && <span className={styles.prontaEntregaLineBadge}>Vegano</span>}
+                    <span className={styles.prontaEntregaLineBadge}>Pronta-entrega</span>
+                    {item.discount && <span className={styles.discountBadge}>{item.discount}</span>}
+                  </div>
 
-        <button className={`${styles.navArrow} ${styles.navRight}`} onClick={() => scrollShelf(prontaEntregaRef, 'right')}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-        </button>
-      </section>
+                  <div className={styles.pricingBlock}>
+                    {item.originalPrice ? (
+                      <div className={styles.oldPriceRow}>
+                        <span className={styles.oldPriceLabel}>De</span>
+                        <span className={styles.oldPrice}>{item.originalPrice}</span>
+                        <span className={styles.oldPriceLabel}>por</span>
+                      </div>
+                    ) : (
+                      <div className={styles.oldPriceRow}>
+                         <span className={styles.oldPriceLabel}>Por</span>
+                      </div>
+                    )}
+                    <div className={styles.currentPriceRow}>
+                      <span className={styles.cardPrice}>{item.price}</span>
+                    </div>
+                  </div>
+
+                    <button className={styles.verProdutoBtn}>Ver produto</button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+  
+            <button className={`${styles.navArrow} ${styles.navRight}`} onClick={() => scrollShelf(prontaEntregaRef, 'right')}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+            </button>
+          </section>
 
 {/* Sticky Bottom Footer */}
       <motion.footer
