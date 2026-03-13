@@ -311,6 +311,37 @@ export default function Home() {
     { id: 4, title: 'Revista Quem Disse, Berenice?', img: 'https://minhaloja-resources.grupoboticario.com.br/magazine/1616/page_1.webp', link: 'https://minhaloja.quemdisseberenice.com.br/jaquelin' }
   ];
 
+  const getProductLink = (item: any) => {
+    const brandName = item.brand === 'Boticário' ? 'O Boticário' : item.brand === 'Berenice' ? 'Berenice' : item.brand;
+    const baseLink = [
+      { name: 'O Boticário', link: 'https://minhaloja.boticario.com.br/jaquelin' },
+      { name: 'Eudora', link: 'https://minhaloja.eudora.com.br/jaquelin' },
+      { name: 'O.U.i Paris', link: 'https://minhaloja.ouiparis.com/jaquelin' },
+      { name: 'Berenice', link: 'https://minhaloja.quemdisseberenice.com.br/jaquelin' },
+      { name: 'Natura', link: 'https://www.minhaloja.natura.com/consultoria/jaquelineanne' },
+      { name: 'Mary Kay', link: 'https://lojaconsultora.marykay.com.br/jaqueline-ortiz-de-oliveira/8XGowcqwYaSD' }
+    ].find(b => b.name === brandName)?.link || 'https://minhaloja.grupoboticario.com.br/jaquelin';
+
+    let sku = '';
+    const img = item.image || '';
+    if (img.includes('/product/')) {
+        const match = img.match(/\/product\/[a-zA-Z]?(\d+)\//i);
+        if (match) sku = match[1];
+    } else if (img.includes('Produtos/')) {
+        const match = img.match(/\/Produtos\/(\d+)GG/i);
+        if (match) sku = match[1];
+    } else if (img.includes('/products/')) {
+        const match = img.match(/\/products\/[a-zA-Z]?(\d+)\//i);
+        if (match) sku = match[1];
+    }
+
+    if (sku && sku.length <= 8 && ['O Boticário', 'Eudora', 'O.U.i Paris', 'Berenice'].includes(brandName)) {
+        return `${baseLink}/produto/${sku}`;
+    }
+
+    return baseLink;
+  };
+
   const scrollShelf = (ref: React.RefObject<HTMLDivElement | null>, direction: 'left' | 'right') => {
     if (ref.current) {
       const scrollAmount = direction === 'left' ? -350 : 350;
@@ -444,14 +475,7 @@ export default function Home() {
               transition={{ type: "spring", stiffness: 300, damping: 24 }}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               onClick={() => {
-                const brandLink = [
-                  { name: 'O Boticário', link: 'https://minhaloja.boticario.com.br/jaquelin' },
-                  { name: 'Eudora', link: 'https://minhaloja.eudora.com.br/jaquelin' },
-                  { name: 'O.U.i Paris', link: 'https://minhaloja.ouiparis.com/jaquelin' },
-                  { name: 'Berenice', link: 'https://minhaloja.quemdisseberenice.com.br/jaquelin' },
-                  { name: 'Natura', link: 'https://www.minhaloja.natura.com/consultoria/jaquelineanne' },
-                  { name: 'Mary Kay', link: 'https://lojaconsultora.marykay.com.br/jaqueline-ortiz-de-oliveira/8XGowcqwYaSD' }
-                ].find(b => b.name === (item.brand === 'Boticário' ? 'O Boticário' : item.brand === 'Berenice' ? 'Berenice' : item.brand))?.link || 'https://minhaloja.grupoboticario.com.br/jaquelin';
+                const brandLink = getProductLink(item);
                 window.open(brandLink, '_blank');
               }}
               style={{ cursor: 'pointer' }}
@@ -548,14 +572,7 @@ export default function Home() {
                 transition={{ type: "spring", stiffness: 300, damping: 24 }}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 onClick={() => {
-                  const brandLink = [
-                    { name: 'O Boticário', link: 'https://minhaloja.boticario.com.br/jaquelin' },
-                    { name: 'Eudora', link: 'https://minhaloja.eudora.com.br/jaquelin' },
-                    { name: 'O.U.i Paris', link: 'https://minhaloja.ouiparis.com/jaquelin' },
-                    { name: 'Berenice', link: 'https://minhaloja.quemdisseberenice.com.br/jaquelin' },
-                    { name: 'Natura', link: 'https://www.minhaloja.natura.com/consultoria/jaquelineanne' },
-                    { name: 'Mary Kay', link: 'https://lojaconsultora.marykay.com.br/jaqueline-ortiz-de-oliveira/8XGowcqwYaSD' }
-                  ].find(b => b.name === (item.brand === 'Boticário' ? 'O Boticário' : item.brand === 'Berenice' ? 'Berenice' : item.brand))?.link || 'https://minhaloja.grupoboticario.com.br/jaquelin';
+                  const brandLink = getProductLink(item);
                   window.open(brandLink, '_blank');
                 }}
                 style={{ cursor: 'pointer' }}
