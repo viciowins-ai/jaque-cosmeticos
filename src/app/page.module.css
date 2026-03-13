@@ -482,34 +482,14 @@
   color: white;
 }
 
-.ribbonBoticario, .ribbonEudora, .ribbonOui {
+.productFlag {
   position: absolute;
-  top: -16px;
-  left: 0px;
+  top: 0px;
+  left: 14px;
   width: 32px;
-  height: 48px;
+  height: auto;
   z-index: 10;
-  display: flex;
-  justify-content: center;
-  padding-top: 8px;
-}
-
-.ribbonBoticario { background-color: #00a368; }
-.ribbonBoticario::after {
-  content: ""; position: absolute; bottom: -10px; left: 0;
-  border-left: 16px solid #00a368; border-right: 16px solid #00a368; border-bottom: 10px solid transparent;
-}
-
-.ribbonEudora { background-color: #5d3550; }
-.ribbonEudora::after {
-  content: ""; position: absolute; bottom: -10px; left: 0;
-  border-left: 16px solid #5d3550; border-right: 16px solid #5d3550; border-bottom: 10px solid transparent;
-}
-
-.ribbonOui { background-color: #901625; }
-.ribbonOui::after {
-  content: ""; position: absolute; bottom: -10px; left: 0;
-  border-left: 16px solid #901625; border-right: 16px solid #901625; border-bottom: 10px solid transparent;
+  object-fit: contain;
 }
 
 /* Footer Bottom Bar */
