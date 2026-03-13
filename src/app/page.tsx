@@ -212,6 +212,58 @@ const shelfItems = [
     "hoverImage": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/B80906/402d6b4c-f882-440d-8ef5-b0646f4b169d-kit-egeo-dolce-egeo.png",
     "bgColor": "#e8f0fa",
     "height": 175
+  },
+  {
+    "id": 5,
+    "name": "Creme para as Mãos Instance Baunilha e Castanha 30g",
+    "brand": "Eudora",
+    "price": "R$ 19,99",
+    "originalPrice": "R$ 24,90",
+    "discount": "-19%",
+    "isPromo": true,
+    "image": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/86226GG.jpg",
+    "hoverImage": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/86226GG.jpg",
+    "bgColor": "#fdf0f0",
+    "height": 170
+  },
+  {
+    "id": 6,
+    "name": "Loção Hidratante Desodorante Corporal Instance Amora Vermelha 400ml",
+    "brand": "Eudora",
+    "price": "R$ 41,90",
+    "originalPrice": "R$ 54,90",
+    "discount": "-23%",
+    "isPromo": true,
+    "image": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/86225GG.jpg",
+    "hoverImage": "https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/86225GG.jpg",
+    "bgColor": "#f8eef0",
+    "height": 180
+  },
+  {
+    "id": 7,
+    "name": "Eau de Parfum Feminino O.U.i Mon Amie 037 75ml",
+    "brand": "O.U.i Paris",
+    "price": "R$ 347,01",
+    "originalPrice": "R$ 379,00",
+    "discount": "-8%",
+    "isPromo": true,
+    "image": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/Z85165/3ec25272-25e2-4749-a00c-906927b09adf-oui-85165-oui-edp-mon-amie-037-75ml-1.jpg",
+    "hoverImage": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/Z85165/e93cfec7-1045-40f9-b9a8-3207e9e86597-oui-85165-oui-edp-mon-amie-037-75ml-piramide.jpg",
+    "bgColor": "#f5f5f5",
+    "height": 185
+  },
+  {
+    "id": 8,
+    "name": "Eau de Parfum Feminino O.U.i Scapin 245 75ml",
+    "brand": "O.U.i Paris",
+    "price": "R$ 347,01",
+    "originalPrice": "R$ 379,00",
+    "discount": "-8%",
+    "isPromo": true,
+    "image": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/Z85166/3c0a52a1-8c4d-4c3e-8c3e-8c3e8c3e8c3e.jpg",
+    "hoverImage": "https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:best/v1/imagens/product/Z85166/3c0a52a1-8c4d-4c3e-8c3e-8c3e8c3e8c3e.jpg",
+    "bgColor": "#f5f5f5",
+    "height": 185
   }
 ];
 
@@ -230,11 +282,11 @@ export default function Home() {
   const router = useRouter();
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
-  const prontaEntregaItems = shelfItems.filter(item => item.id < 100 && item.brand === 'Boticário');
+  const prontaEntregaBase = shelfItems.filter(item => item.id < 100);
 
   const filteredItems = activeFilter
-    ? activeFilter === 'promo' ? prontaEntregaItems.filter(item => item.isPromo) : prontaEntregaItems.filter(item => item.brand === activeFilter)
-    : prontaEntregaItems;
+    ? activeFilter === 'promo' ? prontaEntregaBase.filter(item => item.isPromo) : prontaEntregaBase.filter(item => item.brand === activeFilter)
+    : prontaEntregaBase.filter(item => item.brand === 'Boticário');
 
 
   const lancamentosItems = shelfItems.slice(0, 12);
