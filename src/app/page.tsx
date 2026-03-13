@@ -861,6 +861,22 @@ export default function Home() {
 
   const lancamentosItems = shelfItems.slice(0, 12);
   
+  const getRibbonStyle = (brand: string) => {
+    switch(brand.toLowerCase()) {
+       case 'eudora': return styles.ribbonEudora;
+       case 'o.u.i paris': return styles.ribbonOui;
+       case 'beredice': return styles.ribbonBoticario; // fallback for berenice for now
+       default: return styles.ribbonBoticario; // Boticario, Natura, Avon default to Boticario standard ribbon
+    }
+  };
+  
+  const getRibbonIcon = (brand: string) => {
+      switch(brand.toLowerCase()) {
+         case 'eudora': return <svg viewBox="0 0 24 24" width="18" height="18" fill="white" style={{marginTop: '2px'}}><path d="M14 6H8v3h5v2H8v6h6v2H6V4h8v2z"/></svg>;
+         case 'o.u.i paris': return <span style={{color: 'white', fontSize: '9px', fontWeight: 'bold', marginTop: '6px', transform: 'scaleX(1.1)'}}>O.U.i</span>;
+         default: return <svg viewBox="0 0 24 24" width="16" height="16" fill="white" style={{marginTop: '4px'}}><path d="M14.6 4.7l-1-1.6c-.2-.4-.7-.6-1.1-.6h-1.1c-.5 0-.9.2-1.1.6l-1 1.6H8v2h8v-2h-1.4z"/><path d="M15 8H9v2h2v1H9v2h2v1H9v2h6v-2h-2v-1h2v-2h-2V10h2V8zM8 17v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4H8z"/></svg>;
+      }
+  };
   const catalogs = [
     { id: 1, title: 'Revista O Boticário', img: 'https://minhaloja-resources.grupoboticario.com.br/magazine/1632/page_1.webp', link: 'https://minhaloja.boticario.com.br/jaquelin' },
     { id: 2, title: 'Revista Eudora', img: 'https://minhaloja-resources.grupoboticario.com.br/magazine/1634/page_1.webp', link: 'https://minhaloja.eudora.com.br/jaquelin' },
@@ -1042,7 +1058,10 @@ export default function Home() {
               onClick={() => router.push(`/produto/${item.id}`)}
               style={{ cursor: 'pointer' }}
             >
-              <div className={styles.cardPastelBg} style={{ backgroundColor: item.bgColor }}>
+              <div className={styles.cardPastelBg}>
+                <div className={getRibbonStyle(item.brand)}>
+                    {getRibbonIcon(item.brand)}
+                </div>
                 <button className={styles.heartBtn}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                 </button>
@@ -1051,27 +1070,40 @@ export default function Home() {
               </div>
               <div className={styles.cardInfo}>
                 <div className={styles.cardHeaderRow}>
-                  <span className={styles.cardBrand}>{item.brand}</span>
-                  <div className={styles.cardRating}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    <span>4.9</span>
+                  <div className={styles.cardRatingStars}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="transparent" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                   </div>
                 </div>
-                <h3 className={styles.cardTitle}>{item.name}</h3>
+                <h3 className={styles.cardTitle}>{item.name.length > 55 ? item.name.substring(0, 55) + '...' : item.name}</h3>
+
+                <div className={styles.badgesWrapper}>
+                  {item.brand.toLowerCase() === 'o.u.i paris' && <span className={styles.prontaEntregaLineBadge}>Vegano</span>}
+                  <span className={styles.prontaEntregaLineBadge}>Lançamento</span>
+                  {item.discount && <span className={styles.discountBadge}>{item.discount}</span>}
+                </div>
 
                 <div className={styles.pricingBlock}>
-                  {item.originalPrice && (
+                  {item.originalPrice ? (
                     <div className={styles.oldPriceRow}>
+                      <span className={styles.oldPriceLabel}>De</span>
                       <span className={styles.oldPrice}>{item.originalPrice}</span>
+                      <span className={styles.oldPriceLabel}>por</span>
+                    </div>
+                  ) : (
+                    <div className={styles.oldPriceRow}>
+                       <span className={styles.oldPriceLabel}>Por</span>
                     </div>
                   )}
                   <div className={styles.currentPriceRow}>
                     <span className={styles.cardPrice}>{item.price}</span>
-                    {item.discount && <span className={styles.discountBadge}>{item.discount}</span>}
                   </div>
                 </div>
 
-                <button className={styles.comprarBtn}>adicionar à sacola</button>
+                <button className={styles.verProdutoBtn}>Ver produto</button>
               </div>
             </motion.div>
           ))}
@@ -1121,7 +1153,10 @@ export default function Home() {
               onClick={() => router.push(`/produto/${item.id}`)}
               style={{ cursor: 'pointer' }}
             >
-              <div className={styles.cardPastelBg} style={{ backgroundColor: item.bgColor }}>
+              <div className={styles.cardPastelBg}>
+                <div className={getRibbonStyle(item.brand)}>
+                    {getRibbonIcon(item.brand)}
+                </div>
                 <button className={styles.heartBtn}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                 </button>
@@ -1130,27 +1165,40 @@ export default function Home() {
               </div>
               <div className={styles.cardInfo}>
                 <div className={styles.cardHeaderRow}>
-                  <span className={styles.cardBrand}>{item.brand}</span>
-                  <div className={styles.cardRating}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    <span>4.9</span>
+                  <div className={styles.cardRatingStars}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#001833" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="transparent" stroke="#001833" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                   </div>
                 </div>
-                <h3 className={styles.cardTitle}>{item.name}</h3>
+                <h3 className={styles.cardTitle}>{item.name.length > 55 ? item.name.substring(0, 55) + '...' : item.name}</h3>
+
+                <div className={styles.badgesWrapper}>
+                  {item.brand.toLowerCase() === 'o.u.i paris' && <span className={styles.prontaEntregaLineBadge}>Vegano</span>}
+                  <span className={styles.prontaEntregaLineBadge}>Pronta-entrega</span>
+                  {item.discount && <span className={styles.discountBadge}>{item.discount}</span>}
+                </div>
 
                 <div className={styles.pricingBlock}>
-                  {item.originalPrice && (
+                  {item.originalPrice ? (
                     <div className={styles.oldPriceRow}>
+                      <span className={styles.oldPriceLabel}>De</span>
                       <span className={styles.oldPrice}>{item.originalPrice}</span>
+                      <span className={styles.oldPriceLabel}>por</span>
+                    </div>
+                  ) : (
+                    <div className={styles.oldPriceRow}>
+                       <span className={styles.oldPriceLabel}>Por</span>
                     </div>
                   )}
                   <div className={styles.currentPriceRow}>
                     <span className={styles.cardPrice}>{item.price}</span>
-                    {item.discount && <span className={styles.discountBadge}>{item.discount}</span>}
                   </div>
                 </div>
 
-                <button className={styles.comprarBtn}>adicionar à sacola</button>
+                <button className={styles.verProdutoBtn}>Ver produto</button>
               </div>
             </motion.div>
           ))}
