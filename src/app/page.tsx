@@ -631,7 +631,7 @@ const shelfItems = [
   },
   {
     "id": 112,
-    "name": "Combo Baunilha Intensa (M├úes)",
+    "name": "Combo Baunilha Intensa (Mães)",
     "brand": "Eudora",
     "price": "R$ 49,90",
     "originalPrice": "R$ 63,88",
@@ -644,7 +644,7 @@ const shelfItems = [
   },
   {
     "id": 113,
-    "name": "Lo├º├úo Corporal Suave",
+    "name": "Loção Corporal Suave",
     "brand": "Natura",
     "price": "R$ 22,90",
     "originalPrice": "",
@@ -657,7 +657,7 @@ const shelfItems = [
   },
   {
     "id": 114,
-    "name": "├ügua Micelar Limpeza",
+    "name": "Água Micelar Limpeza",
     "brand": "Avon",
     "price": "R$ 19,90",
     "originalPrice": "R$ 28,00",
@@ -670,7 +670,7 @@ const shelfItems = [
   },
   {
     "id": 115,
-    "name": "Sabonete L├¡quido Relax",
+    "name": "Sabonete Líquido Relax",
     "brand": "Natura",
     "price": "R$ 18,90",
     "originalPrice": "",
@@ -683,7 +683,7 @@ const shelfItems = [
   },
   {
     "id": 116,
-    "name": "Delineador L├¡quido Preto",
+    "name": "Delineador Líquido Preto",
     "brand": "Avon",
     "price": "R$ 22,90",
     "originalPrice": "",
@@ -696,7 +696,7 @@ const shelfItems = [
   },
   {
     "id": 117,
-    "name": "M├íscara de C├¡lios Volume",
+    "name": "Máscara de Cílios Volume",
     "brand": "Avon",
     "price": "R$ 29,90",
     "originalPrice": "",
@@ -709,8 +709,8 @@ const shelfItems = [
   },
   {
     "id": 118,
-    "name": "Creme Nutritivo M├úos",
-    "brand": "Botic├írio",
+    "name": "Creme Nutritivo Mãos",
+    "brand": "Boticário",
     "price": "R$ 21,90",
     "originalPrice": "",
     "discount": "",
@@ -722,8 +722,8 @@ const shelfItems = [
   },
   {
     "id": 119,
-    "name": "Lo├º├úo P├│s Barba Fresh",
-    "brand": "Botic├írio",
+    "name": "Loção Pós Barba Fresh",
+    "brand": "Boticário",
     "price": "R$ 42,90",
     "originalPrice": "R$ 55,00",
     "discount": "-22%",
@@ -735,7 +735,7 @@ const shelfItems = [
   },
   {
     "id": 120,
-    "name": "P├│ Compacto Facial",
+    "name": "Pó Compacto Facial",
     "brand": "Avon",
     "price": "R$ 32,90",
     "originalPrice": "",
@@ -748,8 +748,8 @@ const shelfItems = [
   },
   {
     "id": 121,
-    "name": "Sabonete L├¡quido Facial",
-    "brand": "Botic├írio",
+    "name": "Sabonete Líquido Facial",
+    "brand": "Boticário",
     "price": "R$ 28,90",
     "originalPrice": "R$ 35,00",
     "discount": "-17%",
@@ -761,7 +761,7 @@ const shelfItems = [
   },
   {
     "id": 122,
-    "name": "S├®rum Facial Dual",
+    "name": "Sérum Facial Dual",
     "brand": "Eudora",
     "price": "R$ 39,90",
     "originalPrice": "R$ 55,00",
@@ -774,7 +774,7 @@ const shelfItems = [
   },
   {
     "id": 123,
-    "name": "Batom L├¡quido Vibrante",
+    "name": "Batom Líquido Vibrante",
     "brand": "Berenice",
     "price": "R$ 22,90",
     "originalPrice": "",
@@ -787,7 +787,7 @@ const shelfItems = [
   },
   {
     "id": 124,
-    "name": "Blush Duo M├ígico",
+    "name": "Blush Duo Mágico",
     "brand": "Berenice",
     "price": "R$ 36,90",
     "originalPrice": "R$ 48,00",
@@ -800,7 +800,7 @@ const shelfItems = [
   },
   {
     "id": 125,
-    "name": "S├®rum Vitamina C Luxe",
+    "name": "Sérum Vitamina C Luxe",
     "brand": "O.U.i Paris",
     "price": "R$ 94,90",
     "originalPrice": "R$ 130,00",
@@ -813,7 +813,7 @@ const shelfItems = [
   },
   {
     "id": 126,
-    "name": "S├®rum TimeWise Repair",
+    "name": "Sérum TimeWise Repair",
     "brand": "Mary Kay",
     "price": "R$ 119,90",
     "originalPrice": "R$ 160,00",
@@ -826,7 +826,7 @@ const shelfItems = [
   },
   {
     "id": 127,
-    "name": "Batom Extens├úo de Cor",
+    "name": "Batom Extensão de Cor",
     "brand": "Mary Kay",
     "price": "R$ 42,90",
     "originalPrice": "",
@@ -1069,7 +1069,6 @@ export default function Home() {
                     <span className={styles.cardPrice}>{item.price}</span>
                     {item.discount && <span className={styles.discountBadge}>{item.discount}</span>}
                   </div>
-                  <span className={styles.installmentText}>ou 4x de R$ 7,22 sem juros</span>
                 </div>
 
                 <button className={styles.comprarBtn}>adicionar à sacola</button>
@@ -1149,7 +1148,6 @@ export default function Home() {
                     <span className={styles.cardPrice}>{item.price}</span>
                     {item.discount && <span className={styles.discountBadge}>{item.discount}</span>}
                   </div>
-                  <span className={styles.installmentText}>ou 4x de R$ 7,22 sem juros</span>
                 </div>
 
                 <button className={styles.comprarBtn}>adicionar à sacola</button>
